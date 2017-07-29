@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>表单标签</title>
+</head>
+<body>
+	
+	<form action="#" method="post" name="Form">
+		<table>
+		
+			<tr>
+				<td>姓名：</td>
+				<td>
+					<input type="text" placeholder="用户名" name="username" >
+				</td>
+			</tr>
+			<tr>
+				<td>密码：</td>
+				<td>
+					<input type="password" placeholder="密码" name="password" value="">
+				</td>
+			</tr>
+			<tr>
+				<td>性别：</td>
+				<td>
+					<input type="radio" name="sex" value="male" checked="checked">男
+					<input type="radio" name="sex" value="female" >女
+				</td>
+			</tr>
+			<tr>
+				<td>爱好：</td>
+				<td>
+					<input type="checkbox" name="like" value="1" checked="checked">足球
+					<input type="checkbox" name="like" value="2">篮球
+					<input type="checkbox" name="like" value="3">排球
+					<input type="checkbox" name="like" value="4">羽毛球
+				</td>
+			</tr>
+			<tr>
+				<td>地址：</td>
+				<td>
+					<select name="city" >
+						<option value="GJ">北京</option>
+						<option value="SH" selected="selected">上海</option>
+						<option value="CQ">济南</option>
+						<option value="JN">重庆</option>
+					</select>
+					<select>
+						<option value="HD">海淀区</option>
+						<option value="CY">朝阳区</option>
+						<option value="CP">昌平区</option>
+						<option value="KW">奎文区</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>邮箱：</td>
+				<td>
+					<input type="text" placeholder="邮箱" name="username" >
+				</td>
+			</tr>
+			<tr>
+				<td>上传头像：</td>
+				<td>
+					<input type="file" name="file">
+				</td>
+			</tr>
+			<tr>
+				<td>备注：</td>
+				<td>
+					<textarea name="textarea" rows="10" cols="40" >this is my page !</textarea>
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<input type="submit" name="submit" value="登录">
+					<input type="button" name="btn" value="取消">
+					<input type="reset" name="reset" value="重置">
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<input type="image" src="images/btn.gif" alt="登录">
+				</td>
+			</tr>
+		</table>
+	</form>
+	
+</body>
+</html>
