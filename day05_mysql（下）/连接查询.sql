@@ -11,9 +11,9 @@ SELECT s.stuid, stuname, score, courseid
 FROM student s, score r
 WHERE s.stuid = r.stuid;deptdept
 
-
+-- 2.
 SELECT * FROM emp;
-SELECT * 
+SELECT e.empno,e.ename,e.hiredate 
 FROM emp e, dept d
 WHERE e.deptno = d.deptno; 
 
