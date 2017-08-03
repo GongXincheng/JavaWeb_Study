@@ -1,7 +1,7 @@
 CREATE DATABASE day05;
 USE day05;
 
--- 主键约束
+-- 主键约束：primary key
 	-- 方式1：
 	CREATE TABLE student(
 		id INT PRIMARY KEY,
@@ -24,14 +24,17 @@ USE day05;
 	ALTER TABLE student ADD CONSTRAINT pk_stu_id PRIMARY KEY(id);
 
 
--- 唯一约束：
-
+-- 唯一约束：unique
 	CREATE TABLE student(
 		id INT PRIMARY KEY,
 		NAME VARCHAR(50) UNIQUE
 	);
 	
-
+-- 添加自动增长列：auto_increment
+	CREATE TABLE student(
+		id INT PRIMARY KEY AUTO_INCREMENT,
+		NAME VARCHAR(50) UNIQUE
+	);
 
 -- 删除数据库表
 DROP TABLE student;
