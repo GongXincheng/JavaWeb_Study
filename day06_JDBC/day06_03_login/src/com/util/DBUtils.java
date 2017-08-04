@@ -32,7 +32,7 @@ public class DBUtils {
 		return DriverManager.getConnection(url, user, password);
 	}
 	
-	public void closeAll(ResultSet rs, Statement stmt, Connection conn){
+	public static void closeAll(ResultSet rs, Statement stmt, Connection conn){
 		if(rs!=null){
 			try {
 				rs.close();
