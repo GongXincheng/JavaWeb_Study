@@ -10,12 +10,12 @@ import java.sql.Statement;
  * 使用JDBC技术实现查询数据库数据
  * 并显示在控制台中
  */
-public class Demo1 {
+public class Demo2 {
 
 	public static void main(String[] args) throws Exception {
 
-		//注册驱动(不建议使用会注册两次)
-		DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+		//加载驱动
+		Class.forName("com.mysql.jdbc.Driver");
 		
 		//获取连接 Connection
 		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/day06", "root", "123");
