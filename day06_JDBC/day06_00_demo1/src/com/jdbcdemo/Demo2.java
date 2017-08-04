@@ -112,4 +112,66 @@ public class Demo2 {
 		stmt.close();
 		conn.close();
 	}
+	
+	
+	@Test
+	public void test4() throws Exception{
+
+		//获取连接 Connection
+		Connection conn = null;
+		//得到执行sql语句的对象 statement
+		Statement stmt = null;
+		//执行sql语句，并返回结果
+		ResultSet rs = null;
+		try {
+			//加载驱动
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/day06?user=root&password=123");
+			stmt = conn.createStatement();			
+			rs = stmt.executeQuery("select * from users");
+			
+			//处理结果
+			while(rs.next()){
+				System.out.print(rs.getObject(1)+"\t");
+				System.out.print(rs.getObject(2)+"\t");
+				System.out.print(rs.getObject(3)+"\t");
+				System.out.print(rs.getObject(4)+"\t");
+				System.out.print(rs.getObject(5)+"\t");
+				System.out.println();
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally{
+			//关闭资源
+			if(rs!=null){
+				try {
+					rs.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				rs = null;
+			}
+			if(stmt!=null){
+				try {
+					stmt.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				stmt = null;
+			}
+			if(conn!=null){
+				try {
+					conn.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				conn = null;
+			}
+			
+		}
+		
+	}
+	
 }
