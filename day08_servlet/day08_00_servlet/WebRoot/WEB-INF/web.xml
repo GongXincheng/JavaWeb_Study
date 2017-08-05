@@ -8,6 +8,7 @@
 	<servlet>
 		<servlet-name>servletDemo1</servlet-name>
 		<servlet-class>com.servlet.ServletDemo1</servlet-class>
+		<load-on-startup>2</load-on-startup>
 	</servlet>
 	
 	<!-- 给Servlet提供(映射)一个可供客户端访问的URI-->
