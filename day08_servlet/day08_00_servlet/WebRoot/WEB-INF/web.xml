@@ -3,7 +3,20 @@
 	xmlns="http://java.sun.com/xml/ns/javaee" 
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
 	id="WebApp_ID" version="3.0">
-  <display-name>day08_00_servlet</display-name>
+ 
+ 	<!-- 创建一个Servelt实例 -->
+	<servlet>
+		<servlet-name>servletDemo1</servlet-name>
+		<servlet-class>com.servlet.ServletDemo1</servlet-class>
+	</servlet>
+	
+	<!-- 给Servlet提供(映射)一个可供客户端访问的URI-->
+	<servlet-mapping>
+		<servlet-name>servletDemo1</servlet-name>
+		<url-pattern>/demo1</url-pattern>
+	</servlet-mapping>
+	
+
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
