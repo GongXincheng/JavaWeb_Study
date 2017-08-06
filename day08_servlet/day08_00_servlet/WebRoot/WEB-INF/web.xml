@@ -4,6 +4,8 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
 	id="WebApp_ID" version="3.0">
  
+ 
+ 
  	<!-- 创建一个Servelt实例 -->
 	<servlet>
 		<servlet-name>servletDemo1</servlet-name>
@@ -26,6 +28,15 @@
 		<url-pattern>/demo2</url-pattern>
 	</servlet-mapping>
 	
+	
+	<servlet>
+		<servlet-name>servletDemo3</servlet-name>
+		<servlet-class>com.servlet.ServletDemo3</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>servletDemo3</servlet-name>
+		<url-pattern>/demo3</url-pattern>
+	</servlet-mapping>
 
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
