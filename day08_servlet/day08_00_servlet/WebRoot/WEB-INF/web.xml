@@ -56,10 +56,6 @@
     <servlet-name>ServletDemo4</servlet-name>
     <url-pattern>*.do</url-pattern>
   </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>ServletDemo5</servlet-name>
-    <url-pattern>/servlet/servletDemo5</url-pattern>
-  </servlet-mapping>
 
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
