@@ -37,6 +37,29 @@
 		<servlet-name>servletDemo3</servlet-name>
 		<url-pattern>/demo3</url-pattern>
 	</servlet-mapping>
+	
+  <servlet>
+    <servlet-name>ServletDemo4</servlet-name>
+    <servlet-class>com.servlet.ServletDemo4</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ServletDemo5</servlet-name>
+    <servlet-class>com.servlet.ServletDemo5</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>ServletDemo4</servlet-name>
+    <url-pattern>/servlet/servletDemo4</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>ServletDemo4</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ServletDemo5</servlet-name>
+    <url-pattern>/servlet/servletDemo5</url-pattern>
+  </servlet-mapping>
 
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
