@@ -42,10 +42,6 @@
     <servlet-name>ServletDemo4</servlet-name>
     <servlet-class>com.servlet.ServletDemo4</servlet-class>
   </servlet>
-  <servlet>
-    <servlet-name>ServletDemo5</servlet-name>
-    <servlet-class>com.servlet.ServletDemo5</servlet-class>
-  </servlet>
 
   <servlet-mapping>
     <servlet-name>ServletDemo4</servlet-name>
