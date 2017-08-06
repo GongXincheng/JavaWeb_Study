@@ -1,5 +1,8 @@
 package com.servlet;
-
+/*
+ * 2017年8月6日 11:18:36
+ * 继承GenericServlet类
+ */
 import java.io.IOException;
 
 import javax.servlet.GenericServlet;

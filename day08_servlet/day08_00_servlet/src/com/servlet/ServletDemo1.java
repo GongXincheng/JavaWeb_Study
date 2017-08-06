@@ -1,5 +1,7 @@
 package com.servlet;
-
+/*
+ * 实现Servlet接口
+ */
 import java.io.IOException;
 import java.io.PrintWriter;
 
