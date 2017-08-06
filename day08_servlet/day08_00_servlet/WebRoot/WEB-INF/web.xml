@@ -17,6 +17,15 @@
 		<url-pattern>/demo1</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>servletDemo2</servlet-name>
+		<servlet-class>com.servlet.ServletDemo2</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>servletDemo2</servlet-name>
+		<url-pattern>/demo2</url-pattern>
+	</servlet-mapping>
+	
 
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
