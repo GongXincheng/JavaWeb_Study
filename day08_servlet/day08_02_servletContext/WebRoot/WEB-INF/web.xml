@@ -23,6 +23,11 @@
     <servlet-name>aaaa</servlet-name>
     <servlet-class>com.servletContext.aaaa</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>ServletContextDemo4</servlet-name>
+    <servlet-class>com.servletContext.ServletContextDemo4</servlet-class>
+  </servlet>
+
 
 
 
@@ -42,6 +47,10 @@
   <servlet-mapping>
     <servlet-name>aaaa</servlet-name>
     <url-pattern>/servlet/aaaa</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ServletContextDemo4</servlet-name>
+    <url-pattern>/servlet/ServletContextDemo4</url-pattern>
   </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
