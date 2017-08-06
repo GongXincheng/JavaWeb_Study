@@ -27,6 +27,16 @@
     <servlet-name>ServletContextDemo4</servlet-name>
     <servlet-class>com.servletContext.ServletContextDemo4</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>ServletForwardDemo1</servlet-name>
+    <servlet-class>com.servletContext.ServletForwardDemo1</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ServletForwardDemo2</servlet-name>
+    <servlet-class>com.servletContext.ServletForwardDemo2</servlet-class>
+  </servlet>
+
+
 
 
 
@@ -51,6 +61,14 @@
   <servlet-mapping>
     <servlet-name>ServletContextDemo4</servlet-name>
     <url-pattern>/servlet/ServletContextDemo4</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ServletForwardDemo1</servlet-name>
+    <url-pattern>/servlet/ServletForwardDemo1</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ServletForwardDemo2</servlet-name>
+    <url-pattern>/servlet/ServletForwardDemo2</url-pattern>
   </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
