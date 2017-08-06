@@ -4,7 +4,7 @@
     <jar-attrs id="data/libraryset/EE_6//javax.servlet.jar">
       <attribute name="javadoc_location" value="http://java.sun.com/javaee/6/docs/api/"/>
       <attribute name="source-path-root"/>
-      <attribute name="source-path" value="\day02_css\javeWeb笔记\apache-tomcat-7.0.52-src.zip"/>
+      <attribute name="source-path" value="\Servers\apache-tomcat-7.0.52-src.zip"/>
     </jar-attrs>
   </container>
 </project>
