@@ -11,6 +11,11 @@
     <servlet-name>ServletDemo2</servlet-name>
     <servlet-class>com.servlet.ServletDemo2</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>ServletDemo3</servlet-name>
+    <servlet-class>com.servlet.ServletDemo3</servlet-class>
+  </servlet>
+
 
 
   <servlet-mapping>
@@ -20,6 +25,10 @@
   <servlet-mapping>
     <servlet-name>ServletDemo2</servlet-name>
     <url-pattern>/servlet/demo2</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ServletDemo3</servlet-name>
+    <url-pattern>/servlet/demo3</url-pattern>
   </servlet-mapping>
 
 </web-app>
