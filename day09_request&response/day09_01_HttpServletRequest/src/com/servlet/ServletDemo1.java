@@ -20,7 +20,7 @@ public class ServletDemo1 extends HttpServlet {
 		System.out.println("请求方式："+request.getMethod());	//GET
 		System.out.println("URL：" + request.getRequestURL().toString());	//http://localhost:8080/day09_01_HttpServletRequest/servlet/demo1
 		System.out.println("URI：" + request.getRequestURI());	///day09_01_HttpServletRequest/servlet/demo1
-		System.out.println("虚拟目录："+ request.getContextPath()); // 
+		System.out.println("虚拟目录："+ request.getContextPath()); // day09_01_HttpServletRequest
 		System.out.println("参数部分："+ request.getQueryString());
 	}
 
