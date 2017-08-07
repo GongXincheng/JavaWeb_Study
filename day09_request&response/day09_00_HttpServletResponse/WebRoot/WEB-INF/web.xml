@@ -27,6 +27,16 @@
     <servlet-name>SevletDemo6</servlet-name>
     <servlet-class>com.servlet.SevletDemo6</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>SevletDemo7</servlet-name>
+    <servlet-class>com.servlet.SevletDemo7</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SevletDemo8</servlet-name>
+    <servlet-class>com.servlet.SevletDemo8</servlet-class>
+  </servlet>
+
+
 
 
 
@@ -56,6 +66,14 @@
   <servlet-mapping>
     <servlet-name>SevletDemo6</servlet-name>
     <url-pattern>/servlet/demo6</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SevletDemo7</servlet-name>
+    <url-pattern>/servlet/demo7</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SevletDemo8</servlet-name>
+    <url-pattern>/servlet/demo8</url-pattern>
   </servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
