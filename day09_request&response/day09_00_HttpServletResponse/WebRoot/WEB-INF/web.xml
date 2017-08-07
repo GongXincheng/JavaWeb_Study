@@ -7,10 +7,19 @@
     <servlet-name>SevletDemo1</servlet-name>
     <servlet-class>com.servlet.SevletDemo1</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>SevletDemo2</servlet-name>
+    <servlet-class>com.servlet.SevletDemo2</servlet-class>
+  </servlet>
+
 
   <servlet-mapping>
     <servlet-name>SevletDemo1</servlet-name>
     <url-pattern>/servlet/demo1</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SevletDemo2</servlet-name>
+    <url-pattern>/servlet/demo2</url-pattern>
   </servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
