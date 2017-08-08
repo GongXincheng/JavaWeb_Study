@@ -19,8 +19,14 @@
     <servlet-name>ServletDemo4</servlet-name>
     <servlet-class>com.servlet.ServletDemo4</servlet-class>
   </servlet>
-
-
+  <servlet>
+    <servlet-name>ServletDemo5</servlet-name>
+    <servlet-class>com.servlet.ServletDemo5</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ServletDemo7</servlet-name>
+    <servlet-class>com.servlet.ServletDemo7</servlet-class>
+  </servlet>
 
 
   <servlet-mapping>
@@ -38,6 +44,14 @@
   <servlet-mapping>
     <servlet-name>ServletDemo4</servlet-name>
     <url-pattern>/servlet/demo4</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ServletDemo5</servlet-name>
+    <url-pattern>/servlet/demo5</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ServletDemo7</servlet-name>
+    <url-pattern>/servlet/demo7</url-pattern>
   </servlet-mapping>
 
 </web-app>
