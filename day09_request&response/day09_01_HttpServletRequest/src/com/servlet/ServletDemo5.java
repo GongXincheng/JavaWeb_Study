@@ -26,9 +26,13 @@ public class ServletDemo5 extends HttpServlet {
 		//request.getRequestDispatcher("/servlet/demo7").forward(request, response);
 		
 		//将请求重定向到 demo7 中,请求能跳转到其他应用，地址栏变化
-		response.sendRedirect(request.getContextPath()+"/servlet/demo7");
+//		response.sendRedirect(request.getContextPath()+"/servlet/demo7");
 		
 		System.out.println("B：事办完了");
+		
+		//请求包含
+		request.getRequestDispatcher("/servlet/demo7").include(request, response);
+		
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
