@@ -11,7 +11,7 @@ public class ServletDemo7 extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.setContentType("test/html; charset=UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
 		
 		System.out.println("这个事，我能办");
 		System.out.println(request.getAttribute("str"));

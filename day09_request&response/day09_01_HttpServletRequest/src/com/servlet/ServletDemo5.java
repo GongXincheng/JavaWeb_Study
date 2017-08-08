@@ -12,7 +12,7 @@ public class ServletDemo5 extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		response.setContentType("test/html; charset=UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
 		
 		String str = "aaaa";
 		
@@ -21,8 +21,12 @@ public class ServletDemo5 extends HttpServlet {
 		
 		//将非表单的数据添加到request中
 		request.setAttribute("str", str);
-		//将请求转发到 demo6 中
-		request.getRequestDispatcher("/servlet/demo7").forward(request, response);
+		
+		//将请求转发到 demo7 中,请求转发不能跳转到其他应用，地址栏不变
+		//request.getRequestDispatcher("/servlet/demo7").forward(request, response);
+		
+		//将请求重定向到 demo7 中,请求能跳转到其他应用，地址栏变化
+		response.sendRedirect(request.getContextPath()+"/servlet/demo7");
 		
 		System.out.println("B：事办完了");
 	}
