@@ -11,6 +11,31 @@
     <servlet-name>SessionDemo2</servlet-name>
     <servlet-class>com.servlet.SessionDemo2</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>ShowAllBooksServlet</servlet-name>
+    <servlet-class>com.cart.ShowAllBooksServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AddCartServlet</servlet-name>
+    <servlet-class>com.cart.AddCartServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ShowCartServlet</servlet-name>
+    <servlet-class>com.cart.ShowCartServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CodeServlet</servlet-name>
+    <servlet-class>com.login.CodeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DoLogin</servlet-name>
+    <servlet-class>com.login.DoLogin</servlet-class>
+  </servlet>
+
+
+
+
+
 
 
   <servlet-mapping>
@@ -20,6 +45,26 @@
   <servlet-mapping>
     <servlet-name>SessionDemo2</servlet-name>
     <url-pattern>/servlet/sessionDemo2</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ShowAllBooksServlet</servlet-name>
+    <url-pattern>/servlet/showAllBooksServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddCartServlet</servlet-name>
+    <url-pattern>/servlet/addCart</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ShowCartServlet</servlet-name>
+    <url-pattern>/servlet/showCart</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CodeServlet</servlet-name>
+    <url-pattern>/servlet/codeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DoLogin</servlet-name>
+    <url-pattern>/servlet/doLogin</url-pattern>
   </servlet-mapping>
 
 </web-app>
