@@ -11,6 +11,11 @@
     <servlet-name>CookieDemo2</servlet-name>
     <servlet-class>com.cookie.demo.CookieDemo2</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>ClearServlet</servlet-name>
+    <servlet-class>com.cookie.demo.ClearServlet</servlet-class>
+  </servlet>
+
 
 
   <servlet-mapping>
@@ -20,6 +25,10 @@
   <servlet-mapping>
     <servlet-name>CookieDemo2</servlet-name>
     <url-pattern>/ck2</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ClearServlet</servlet-name>
+    <url-pattern>/servlet/clear</url-pattern>
   </servlet-mapping>
 
 </web-app>
