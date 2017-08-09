@@ -23,6 +23,16 @@
     <servlet-name>DoLoginServlet</servlet-name>
     <servlet-class>com.cookie.login.DoLoginServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>ShowAllBooksServlet</servlet-name>
+    <servlet-class>com.history.ShowAllBooksServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ShowBookDetail</servlet-name>
+    <servlet-class>com.history.ShowBookDetail</servlet-class>
+  </servlet>
+
+
 
 
 
@@ -47,6 +57,14 @@
   <servlet-mapping>
     <servlet-name>DoLoginServlet</servlet-name>
     <url-pattern>/servlet/doLogin</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ShowAllBooksServlet</servlet-name>
+    <url-pattern>/servlet/showAllBook</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ShowBookDetail</servlet-name>
+    <url-pattern>/servlet/showBookDetail</url-pattern>
   </servlet-mapping>
 
 </web-app>
