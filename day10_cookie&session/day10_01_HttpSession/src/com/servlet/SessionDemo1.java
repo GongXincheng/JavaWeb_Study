@@ -19,6 +19,7 @@ public class SessionDemo1 extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("name", name);
 		
+		response.getWriter().write(session.getId());
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)

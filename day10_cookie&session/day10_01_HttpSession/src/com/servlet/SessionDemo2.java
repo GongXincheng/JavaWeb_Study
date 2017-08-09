@@ -25,6 +25,8 @@ public class SessionDemo2 extends HttpServlet {
 		}else{
 			out.println("你不能直接访问此功能");
 		}
+		
+		out.write(session.getId());
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
