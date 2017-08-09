@@ -34,7 +34,8 @@ public class CookieDemo1 extends HttpServlet {
 				
 				out.write("最后访问时间为："+time);
 			}
-		}		
+		}
+		out.print("<a href='"+request.getContextPath()+"/servlet/clear'>clear</a>");
 		
 		//创建Cookie
 		Cookie ck = new Cookie("lastAccessTime", new Date().getTime()+"");//System.currentTimeMillis();
