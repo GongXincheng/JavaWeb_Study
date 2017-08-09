@@ -15,6 +15,16 @@
     <servlet-name>ClearServlet</servlet-name>
     <servlet-class>com.cookie.demo.ClearServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>com.cookie.login.LoginServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DoLoginServlet</servlet-name>
+    <servlet-class>com.cookie.login.DoLoginServlet</servlet-class>
+  </servlet>
+
+
 
 
 
@@ -29,6 +39,14 @@
   <servlet-mapping>
     <servlet-name>ClearServlet</servlet-name>
     <url-pattern>/servlet/clear</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/servlet/login</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DoLoginServlet</servlet-name>
+    <url-pattern>/servlet/doLogin</url-pattern>
   </servlet-mapping>
 
 </web-app>
