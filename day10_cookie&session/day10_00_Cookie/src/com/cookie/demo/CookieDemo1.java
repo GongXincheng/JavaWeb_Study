@@ -21,13 +21,15 @@ public class CookieDemo1 extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		
 		//获取客户端的所有Cookie对象
-		Cookie[] cookies = request.getCookies();	//获取Cookies
+		Cookie[] cookies = request.getCookies();	
 		
 		for (int i = 0; cookies!=null && i < cookies.length; i++) {
+			//判断当前Cookie中的name是否是想法要的cookie
 			if( "lastAccessTime".equals(cookies[i].getName()) ){
 				//lastAccessTime的值为毫秒时间值，需要转换
-				SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 				long l = Long.parseLong(cookies[i].getValue());
+				//将时间毫秒值转换为指定格式的字符串
+				SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 				String time = timeFormat.format(new Date(l));
 				
 				out.write("最后访问时间为："+time);
@@ -35,8 +37,16 @@ public class CookieDemo1 extends HttpServlet {
 		}		
 		
 		//创建Cookie
-		Cookie ck = new Cookie("lastAccessTime", System.currentTimeMillis()+"");
-		//把信息写回到客户端
+		Cookie ck = new Cookie("lastAccessTime", new Date().getTime()+"");//System.currentTimeMillis();
+		//设置Cookie的有效时间，单位(s)
+		ck.setMaxAge(60*5);//五分钟后清除cookie
+		
+		//设置Cookie的path
+		//ck.setPath("/day10_00_Cookie");
+		//ck.setPath(request.getContextPath()+"");	//day10_00_Cookie
+		ck.setPath("/");
+		
+		//把Cookie信息写回到客户端
 		response.addCookie(ck);
 		
 	}
