@@ -7,10 +7,19 @@
     <servlet-name>SessionDemo1</servlet-name>
     <servlet-class>com.servlet.SessionDemo1</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>SessionDemo2</servlet-name>
+    <servlet-class>com.servlet.SessionDemo2</servlet-class>
+  </servlet>
+
 
   <servlet-mapping>
     <servlet-name>SessionDemo1</servlet-name>
     <url-pattern>/servlet/sessionDemo1</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SessionDemo2</servlet-name>
+    <url-pattern>/servlet/sessionDemo2</url-pattern>
   </servlet-mapping>
 
 </web-app>
