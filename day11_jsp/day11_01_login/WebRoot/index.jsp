@@ -21,9 +21,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <%
-    	Date date = new Date();
-     %>
-     <input type="text" value="<%= date.toLocaleString()%>">
+    This is my JSP page. <br>
   </body>
 </html>
