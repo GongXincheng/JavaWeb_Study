@@ -20,7 +20,6 @@
 		//pageContext.setAttribute("p", "pp", PageContext.APPLICATION_SCOPE);
 		application.setAttribute("p", "application");
 		
-
 	 %>
 	 
 	 ${applicationScope.p }
