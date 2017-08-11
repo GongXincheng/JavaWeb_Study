@@ -8,6 +8,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+.lime{
+	background-color: lime;
+}
+.red{
+	background-color: red;
+}
+</style>
 </head>
 <body>
 	<%
@@ -30,7 +38,8 @@
 	 	</tr>	
 	 	
  		<c:forEach items="${list }" var="l" varStatus="vs">
- 			<tr ${vs.count%2==0 ? "style='background-color: lime;'" : "style='background-color: #999;'" }>
+ 			<%-- <tr ${vs.count%2==0 ? "style='background-color: lime;'" : "style='background-color: #999;'" }> --%>
+ 			<tr class="${vs.count%2==0 ? 'lime' : 'red'}">	
  				<td>${l }</td>
  				<td>${vs.index }</td>
  				<td>${vs.count }</td>
