@@ -12,39 +12,45 @@
 			<tr>
 				<td>用户名</td>
 				<td>
-					<input type="text" name="username">
+					<input type="text" name="username" value="${uf.username}">
 				</td>
+				<td>${uf.msg.username}${error }</td>
 			</tr>
 			<tr>
 				<td>密码</td>
 				<td>
 					<input type="password" name="password">
 				</td>
+				<td>${uf.msg.password}</td>
 			</tr>
 			<tr>
 				<td>确认密码</td>
 				<td>
 					<input type="password" name="repassword">
 				</td>
+				<td>${uf.msg.repassword}</td>
 			</tr>
 			<tr>
 				<td>邮箱</td>
 				<td>
-					<input type="text" name="email">
+					<input type="text" name="email" value="${uf.email}">
 				</td>
+				<td>${uf.msg.email}</td>
 			</tr>
 			<tr>
 				<td>生日</td>
 				<td>
-					<input type="text" name="birthday">
+					<input type="text" name="birthday" value="${uf.birthday}">
 				</td>
+				<td>${uf.msg.birthday}</td>
 			</tr>
 			<tr>
-				<td colspan="1">
+				<td colspan="2">
 					<input type="submit" value="注册">
 				</td>
 			</tr>
 		</table>
 	</form>
+	
 </body>
 </html>
