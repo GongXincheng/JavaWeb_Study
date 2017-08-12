@@ -20,6 +20,7 @@ public class TestTransation {
 			conn.setAutoCommit(false); //相当于begin 开启事务
 			ps = conn.prepareStatement("update account set money=money-100 where name='aaa'");
 			ps.executeUpdate();
+			ps.close();
 			//int i = 10/0;
 			ps = conn.prepareStatement("update account set money=money+100 where name='bbb'");
 			ps.executeUpdate();
