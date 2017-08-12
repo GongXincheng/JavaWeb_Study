@@ -3,6 +3,7 @@ package com.service.impl;
 import com.dao.UserDao;
 import com.dao.impl.UserDaoImpl;
 import com.domain.User;
+import com.exception.UserExistException;
 import com.service.dao.UserService;
 
 public class UserServiceImpl implements UserService {
@@ -25,6 +26,17 @@ public class UserServiceImpl implements UserService {
 			e.printStackTrace();
 		}
 		return u;
+	}
+
+	@Override
+	public boolean findUserByName(String name) throws UserExistException {
+		// TODO Auto-generated method stub
+		boolean b = userDao.findUserByName(name);
+		if(b){
+			throw new UserExistException("用户名已存在");
+		}
+		
+		return b;
 	}
 
 }
