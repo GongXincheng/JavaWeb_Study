@@ -71,4 +71,30 @@ public class UserDaoImpl implements UserDao {
 		return u;
 	}
 
+	@Override
+	public boolean findUserByName(String name) {
+		Connection conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = DBUtil.getConnection();
+			String sql = "select * from users where username=?";
+			ps = conn.prepareStatement(sql );
+			ps.setString(1, name);
+			rs = ps.executeQuery();
+			
+			if(rs.next()){
+				return true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally{
+			DBUtil.closeAll(rs, ps, conn);
+		}
+		return false;
+	}
+
+	
 }
