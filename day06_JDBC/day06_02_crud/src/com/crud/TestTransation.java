@@ -17,6 +17,8 @@ public class TestTransation {
 		
 		try {
 			conn = DBUtil.getConnection();
+			//设置事务隔离级别
+			conn.setTransactionIsolation(Connection.TRANSACTION_REPEATABLE_READ);//mysql默认级别
 			conn.setAutoCommit(false); //相当于begin 开启事务
 			ps = conn.prepareStatement("update account set money=money-100 where name='aaa'");
 			ps.executeUpdate();
