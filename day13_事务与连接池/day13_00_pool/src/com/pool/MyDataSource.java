@@ -32,7 +32,7 @@ public class MyDataSource implements DataSource{
 	public Connection getConnection() throws SQLException {
 		Connection conn = null;
 		if(pool.size()>0){
-			conn = pool.remove();	//从池中取出一个连接
+			conn = pool.removeFirst();	//从池中取出一个连接
 			return conn;
 		}
 		else{
