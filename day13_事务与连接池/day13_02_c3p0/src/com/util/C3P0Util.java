@@ -5,11 +5,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.sql.DataSource;
+
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 public class C3P0Util {
 	//得到一个数据源
-	private static ComboPooledDataSource dataSource = new ComboPooledDataSource();
+	private static DataSource dataSource = new ComboPooledDataSource();
 	
 	//从数据源中得到一个Connection对象
 	public static Connection getConnection(){
