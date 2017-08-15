@@ -1,4 +1,4 @@
-package com.util;
+package com.test;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -17,6 +17,7 @@ import org.apache.commons.dbutils.handlers.ScalarHandler;
 import org.junit.Test;
 
 import com.entity.User;
+import com.util.C3P0Util;
 
 public class TestResultSetHandler {
 	

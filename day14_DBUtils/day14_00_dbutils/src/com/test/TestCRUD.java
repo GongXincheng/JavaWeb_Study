@@ -1,10 +1,12 @@
-package com.util;
+package com.test;
 
 import java.sql.SQLException;
 import java.util.Date;
 
 import org.apache.commons.dbutils.QueryRunner;
 import org.junit.Test;
+
+import com.util.C3P0Util;
 
 public class TestCRUD {
 	

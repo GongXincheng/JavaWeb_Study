@@ -1,4 +1,4 @@
-package com.util;
+package com.test;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,6 +11,7 @@ import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.junit.Test;
 
 import com.entity.User;
+import com.util.C3P0Util;
 
 public class TestSelect {
 	
