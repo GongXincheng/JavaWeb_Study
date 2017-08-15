@@ -6,9 +6,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.junit.Test;
+
 import com.entity.User;
-import com.util.DBUtil;
+import com.util.C3P0Util;
 
 public class TestCRUD {
 
@@ -20,7 +22,7 @@ public class TestCRUD {
 		ResultSet rs = null;
 		
 		try {
-			conn = DBUtil.getConnection();
+			conn = C3P0Util.getConnection();
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery("select * from users");
 			
@@ -43,7 +45,7 @@ public class TestCRUD {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
-			DBUtil.closeAll(rs, stmt, conn);
+			C3P0Util.release(conn, stmt, rs);
 		}
 		
 	}
@@ -55,7 +57,7 @@ public class TestCRUD {
 		Statement stmt = null;
 		
 		try {
-			conn = DBUtil.getConnection();
+			conn = C3P0Util.getConnection();
 			stmt = conn.createStatement();
 			int x = stmt.executeUpdate("INSERT INTO users VALUES(4,'gxc','123','gxc@qq.com','2017-08-04')");
 			if(x>0){
@@ -66,7 +68,7 @@ public class TestCRUD {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
-			DBUtil.closeAll(null, stmt, conn);
+			C3P0Util.release(conn, stmt, null);
 		}
 		
 	}
@@ -78,7 +80,7 @@ public class TestCRUD {
 		Statement stmt = null;
 		
 		try {
-			conn = DBUtil.getConnection();
+			conn = C3P0Util.getConnection();
 			stmt = conn.createStatement();
 			int x = stmt.executeUpdate("UPDATE users SET PASSWORD = '757853' WHERE id=3");
 			if(x>0){
@@ -89,7 +91,7 @@ public class TestCRUD {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
-			DBUtil.closeAll(null, stmt, conn);
+			C3P0Util.release(conn, stmt, null);
 		}
 		
 	}
@@ -101,7 +103,7 @@ public class TestCRUD {
 		Statement stmt = null;
 		
 		try {
-			conn = DBUtil.getConnection();
+			conn = C3P0Util.getConnection();
 			stmt = conn.createStatement();
 			int x = stmt.executeUpdate("delete from users where id = 4");
 			if(x>0){
@@ -112,7 +114,7 @@ public class TestCRUD {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
-			DBUtil.closeAll(null, stmt, conn);
+			C3P0Util.release(conn, stmt, null);
 		}
 		
 	}
