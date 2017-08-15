@@ -16,7 +16,7 @@
       <property name="maxPoolSize">10</property>
       <property name="minPoolSize">1</property>
       <property name="maxStatements">0</property>
-    </user-overrides>
+    </user-overrides> 
 
   </default-config>
 </c3p0-config>
