@@ -1,5 +1,7 @@
 package com.dao;
 
+import com.domain.Account;
+
 public interface AccountDao {
 	
 	/**
@@ -9,4 +11,5 @@ public interface AccountDao {
 	 * @param money		转账金额
 	 */
 	public void updateAccount(String fromname, String toname, double money) throws Exception;
+
 }

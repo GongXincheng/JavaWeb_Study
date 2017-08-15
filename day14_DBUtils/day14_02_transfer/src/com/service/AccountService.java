@@ -8,6 +8,6 @@ public interface AccountService {
 	 * @param toname	转入用户
 	 * @param money		转账金额
 	 */
-	public void transfer(String fromname, String toname, double money) throws Exception;
+	public void transfer(String fromname, String toname, double money);
 	
 }

@@ -1,5 +1,7 @@
 package com.dao;
 
+import com.domain.Account;
+
 public interface AccountDao {
 	
 	/**
@@ -8,5 +10,21 @@ public interface AccountDao {
 	 * @param toname	转入用户
 	 * @param money		转账金额
 	 */
+	@Deprecated
 	public void updateAccount(String fromname, String toname, double money) throws Exception;
+	
+	/**
+	 * 根据账户信息修改金额
+	 * @param account
+	 */
+	public void updateAccount(Account account) throws Exception;
+	
+	
+	/**
+	 * 根据用户名查找账户信息
+	 * @param name
+	 * @return
+	 * @throws Exception
+	 */
+	public Account findAccountByName(String name) throws Exception;
 }
