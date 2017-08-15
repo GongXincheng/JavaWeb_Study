@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.ResultSetHandler;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.junit.Test;
 
 import com.entity.User;
@@ -15,7 +16,7 @@ public class TestCRUD {
 	
 //查询版本 -> 1
 	@Test
-	public void testSelect() throws SQLException{
+	public void testSelect1() throws SQLException{
 		//创建QueryRunner对象
 		QueryRunner qr = new QueryRunner(C3P0Util.getDataSource());
 		
@@ -27,7 +28,7 @@ public class TestCRUD {
 				while(rs.next()){
 					User u = new User();
 					u.setId(rs.getInt(1));
-					u.setName(rs.getString(2));
+					u.setUsername(rs.getString(2));
 					u.setPassword(rs.getString(3));
 					u.setEmail(rs.getString(4));
 					u.setBirthday(rs.getDate(5));
@@ -44,5 +45,15 @@ public class TestCRUD {
 	
 	
 //查询版本 -> 2
-	
+	@Test
+	public void testSelect2() throws SQLException{
+		//创建QueryRunner对象
+		QueryRunner qr = new QueryRunner(C3P0Util.getDataSource());
+		//执行查询语句，并获取数据并封装到list集合中
+		List<User> list = qr.query("select * from users where username = ?", new BeanListHandler<User>(User.class), "tom");
+		//遍历
+		for (User user : list) {
+			System.out.println(user);
+		}
+	}
 }	
