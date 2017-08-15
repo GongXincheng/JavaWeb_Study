@@ -12,7 +12,7 @@ import org.junit.Test;
 
 import com.entity.User;
 
-public class TestCRUD {
+public class TestSelect {
 	
 //查询版本 -> 1
 	@Test
