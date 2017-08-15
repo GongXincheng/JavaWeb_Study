@@ -1,3 +1,7 @@
+<%@page import="java.sql.Connection"%>
+<%@page import="javax.sql.DataSource"%>
+<%@page import="javax.naming.InitialContext"%>
+<%@page import="javax.naming.Context"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
@@ -21,6 +25,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    This is my JSP page. <br>
+    <%
+    
+    Context initContext = new InitialContext();
+	DataSource ds = (DataSource)initContext.lookup("java:/comp/env/jdbc/day13_03_JNDI");
+	Connection conn = ds.getConnection();
+	out.print(conn);
+    
+     %>
   </body>
 </html>
