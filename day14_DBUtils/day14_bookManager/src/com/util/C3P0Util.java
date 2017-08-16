@@ -13,6 +13,10 @@ public class C3P0Util {
 	//得到一个数据源
 	private static DataSource dataSource = new ComboPooledDataSource();
 	
+	public static DataSource getDataSource() {
+		return dataSource;
+	}
+
 	//从数据源中得到一个Connection对象
 	public static Connection getConnection(){
 		try {

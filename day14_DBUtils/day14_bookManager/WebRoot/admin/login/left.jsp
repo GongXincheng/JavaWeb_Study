@@ -28,7 +28,7 @@
 		
 		
 		//子目录添加
-		d.add(11,1,'商品查看','${pageContext.request.contextPath}/admin/products/list.jsp','','mainFrame');
+		d.add(11,1,'商品查看','${pageContext.request.contextPath}/servlet/bookListServlet','','mainFrame');
 	
 		
 		document.write(d);
