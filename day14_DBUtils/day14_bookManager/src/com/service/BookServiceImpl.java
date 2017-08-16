@@ -2,8 +2,7 @@ package com.service;
 
 import java.util.List;
 
-import caom.dao.BookDaoImpl;
-
+import com.dao.BookDaoImpl;
 import com.domain.Book;
 
 public class BookServiceImpl {

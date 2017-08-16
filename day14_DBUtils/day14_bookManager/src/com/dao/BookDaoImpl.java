@@ -1,4 +1,4 @@
-package caom.dao;
+package com.dao;
 
 import java.util.List;
 
