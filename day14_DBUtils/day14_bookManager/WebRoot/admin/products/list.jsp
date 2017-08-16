@@ -12,6 +12,12 @@
 	function addProduct() {
 		window.location.href = "${pageContext.request.contextPath}/admin/products/add.jsp";
 	}
+	//提示用户是否删除
+	function delBook(id, name){
+		if(confirm("是否确定删除:"+name+"？")){
+			location.href = "${pageContext.request.contextPath }/servlet/delBookServlet?id="+id;
+		}
+	}
 </script>
 </HEAD>
 <body>
@@ -109,6 +115,7 @@
 							style="BORDER-RIGHT: gray 1px solid; BORDER-TOP: gray 1px solid; BORDER-LEFT: gray 1px solid; WIDTH: 100%; WORD-BREAK: break-all; BORDER-BOTTOM: gray 1px solid; BORDER-COLLAPSE: collapse; BACKGROUND-COLOR: #f5fafe; WORD-WRAP: break-word">
 							<tr
 								style="FONT-WEIGHT: bold; FONT-SIZE: 12pt; HEIGHT: 25px; BACKGROUND-COLOR: #afd1f3">
+								<td align="center" width="5%"><input type="checkbox" id="ckAll" />全选</td>
 								<td align="center" width="24%">商品编号</td>
 								<td align="center" width="18%">商品名称</td>
 								<td align="center" width="9%">商品价格</td>
@@ -121,8 +128,9 @@
 							
 				<c:forEach items="${books }" var="book" varStatus="status">
 								<tr onmouseover="this.style.backgroundColor = 'white'"
-									onmouseout="this.style.backgroundColor = '#F5FAFE';" 
-									${status.count%2==0 ? "style='background:green'" : "style='background:pink'" }>
+									onmouseout="this.style.backgroundColor = '#F5FAFE';" >
+									<td style="CURSOR: hand; HEIGHT: 22px" align="center"
+										width="23"><input type="checkbox" name="ids" ></td>
 									<td style="CURSOR: hand; HEIGHT: 22px" align="center"
 										width="23">${book.id }</td>
 									<td style="CURSOR: hand; HEIGHT: 22px" align="center"
@@ -140,7 +148,7 @@
 									</td>
 
 									<td align="center" style="HEIGHT: 22px" width="7%">
-										<a href="#">
+										<a href="javascript:delBook('${book.id }','${book.name }')">
 											<img
 											src="${pageContext.request.contextPath}/admin/images/i_del.gif"
 											width="16" height="16" border="0" style="CURSOR: hand">

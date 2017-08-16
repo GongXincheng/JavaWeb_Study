@@ -19,6 +19,11 @@
     <servlet-name>UpdateBookServlet</servlet-name>
     <servlet-class>com.servlet.UpdateBookServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>DelBookServlet</servlet-name>
+    <servlet-class>com.servlet.DelBookServlet</servlet-class>
+  </servlet>
+
 
 
 
@@ -38,6 +43,10 @@
   <servlet-mapping>
     <servlet-name>UpdateBookServlet</servlet-name>
     <url-pattern>/servlet/updateBookServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DelBookServlet</servlet-name>
+    <url-pattern>/servlet/delBookServlet</url-pattern>
   </servlet-mapping>
 
 </web-app>
