@@ -3,6 +3,7 @@ package caom.dao;
 import java.util.List;
 
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import com.domain.Book;
@@ -30,5 +31,27 @@ public class BookDaoImpl {
 		QueryRunner qr = new QueryRunner(C3P0Util.getDataSource());
 		qr.update("INSERT INTO book VALUES(?,?,?,?,?,?)",
 				book.getId(), book.getName(), book.getPrice(), book.getPnum(), book.getCategory(), book.getDescription());
+	}
+
+	/**
+	 * 根据id查找图书
+	 * @param id
+	 * @throws Exception 
+	 */
+	public Book finBookById(String id) throws Exception {
+		QueryRunner qr = new QueryRunner(C3P0Util.getDataSource());
+		Book book = qr.query("select * from book where id=?", new BeanHandler<Book>(Book.class), id);
+		return book;
+	}
+
+	/**
+	 * 修改图书
+	 * @param book
+	 * @throws Exception 
+	 */
+	public void updateBook(Book book) throws Exception {
+		QueryRunner qr = new QueryRunner(C3P0Util.getDataSource());
+		qr.update("update book set name=?,price=?,pnum=?,category=?,description=? where id=? ",
+				book.getName(),book.getPrice(),book.getPnum(),book.getCategory(),book.getDescription(),book.getId());
 	}
 }

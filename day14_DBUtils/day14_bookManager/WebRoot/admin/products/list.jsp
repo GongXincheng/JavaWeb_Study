@@ -133,14 +133,14 @@
 										width="8%">${book.pnum }</td>
 									<td style="CURSOR: hand; HEIGHT: 22px" align="center">${book.category }</td>
 									<td align="center" style="HEIGHT: 22px" width="7%"><a
-										href="${pageContext.request.contextPath}/admin/products/edit.jsp">
+										href="${pageContext.request.contextPath}/servlet/findBookByIdServlet?id=${book.id}">
 											<img
 											src="${pageContext.request.contextPath}/admin/images/i_edit.gif"
 											border="0" style="CURSOR: hand"> </a>
 									</td>
 
-									<td align="center" style="HEIGHT: 22px" width="7%"><a
-										href="#">
+									<td align="center" style="HEIGHT: 22px" width="7%">
+										<a href="#">
 											<img
 											src="${pageContext.request.contextPath}/admin/images/i_del.gif"
 											width="16" height="16" border="0" style="CURSOR: hand">

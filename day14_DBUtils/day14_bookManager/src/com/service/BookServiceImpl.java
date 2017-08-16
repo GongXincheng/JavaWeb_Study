@@ -34,4 +34,27 @@ public class BookServiceImpl {
 			e.printStackTrace();
 		}
 	}
+
+	/**
+	 * 根据id查找图书
+	 * @param id
+	 * @return
+	 */
+	public Book findBookById(String id) {
+		try {
+			return bookDao.finBookById(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public void updateBook(Book book) {
+		try {
+			bookDao.updateBook(book);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

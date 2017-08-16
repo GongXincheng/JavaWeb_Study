@@ -11,6 +11,16 @@
     <servlet-name>AddBookServlet</servlet-name>
     <servlet-class>com.servlet.AddBookServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>FindBookByIdServlet</servlet-name>
+    <servlet-class>com.servlet.FindBookByIdServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UpdateBookServlet</servlet-name>
+    <servlet-class>com.servlet.UpdateBookServlet</servlet-class>
+  </servlet>
+
+
 
 
   <servlet-mapping>
@@ -20,6 +30,14 @@
   <servlet-mapping>
     <servlet-name>AddBookServlet</servlet-name>
     <url-pattern>/servlet/addBookServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FindBookByIdServlet</servlet-name>
+    <url-pattern>/servlet/findBookByIdServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpdateBookServlet</servlet-name>
+    <url-pattern>/servlet/updateBookServlet</url-pattern>
   </servlet-mapping>
 
 </web-app>
