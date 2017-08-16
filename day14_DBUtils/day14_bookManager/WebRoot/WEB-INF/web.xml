@@ -7,10 +7,19 @@
     <servlet-name>BookListServlet</servlet-name>
     <servlet-class>com.servlet.BookListServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>AddBookServlet</servlet-name>
+    <servlet-class>com.servlet.AddBookServlet</servlet-class>
+  </servlet>
+
 
   <servlet-mapping>
     <servlet-name>BookListServlet</servlet-name>
     <url-pattern>/servlet/bookListServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddBookServlet</servlet-name>
+    <url-pattern>/servlet/addBookServlet</url-pattern>
   </servlet-mapping>
 
 </web-app>
