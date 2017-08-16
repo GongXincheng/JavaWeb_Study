@@ -22,7 +22,8 @@
 	<script type="text/javascript">
 		<!--
 		d = new dTree('d');
-		d.add(0,-1,'系统菜单树');
+		d.add(0,-1,'系统菜单树');	
+		//第一个参数：当前节点， 第二个参数父节点
 		d.add(1,0,'商品管理','${pageContext.request.contextPath}/admin/login/welcome.jsp','','mainFrame');
 		
 		
