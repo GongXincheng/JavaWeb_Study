@@ -18,6 +18,17 @@
 			location.href = "${pageContext.request.contextPath }/servlet/delBookServlet?id="+id;
 		}
 	}
+	//全选/全不选
+	function checkAll(){
+		//得到ckAll元素，并得到它的选中状态
+		var flag = document.getElementById("ckAll").checked;
+		//得到所有ids复选框
+		var ids = document.getElementsByName("ids");
+		//循环给每一个复选框赋值
+		for(var i = 0; i<ids.length; i++){
+			ids[i].checked = flag;	//把ckAll的状态赋值给每一个ids[i]的元素
+		}
+	}
 </script>
 </HEAD>
 <body>
@@ -115,7 +126,7 @@
 							style="BORDER-RIGHT: gray 1px solid; BORDER-TOP: gray 1px solid; BORDER-LEFT: gray 1px solid; WIDTH: 100%; WORD-BREAK: break-all; BORDER-BOTTOM: gray 1px solid; BORDER-COLLAPSE: collapse; BACKGROUND-COLOR: #f5fafe; WORD-WRAP: break-word">
 							<tr
 								style="FONT-WEIGHT: bold; FONT-SIZE: 12pt; HEIGHT: 25px; BACKGROUND-COLOR: #afd1f3">
-								<td align="center" width="5%"><input type="checkbox" id="ckAll" />全选</td>
+								<td align="center" width="5%"><input type="checkbox" id="ckAll" onclick="checkAll()"/>全选</td>
 								<td align="center" width="24%">商品编号</td>
 								<td align="center" width="18%">商品名称</td>
 								<td align="center" width="9%">商品价格</td>
