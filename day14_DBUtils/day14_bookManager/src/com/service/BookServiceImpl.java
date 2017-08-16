@@ -1,5 +1,6 @@
 package com.service;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import com.dao.BookDaoImpl;
@@ -47,12 +48,27 @@ public class BookServiceImpl {
 		}
 		return null;
 	}
-
+	/**
+	 * 修改图书
+	 * @param book
+	 */
 	public void updateBook(Book book) {
 		try {
 			bookDao.updateBook(book);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * 根据id删除图书
+	 * @param id
+	 */
+	public void deleteBook(String id) {
+		try {
+			bookDao.delBook(id);
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}

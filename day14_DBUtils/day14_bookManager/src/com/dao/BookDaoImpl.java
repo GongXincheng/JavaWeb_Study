@@ -1,5 +1,6 @@
 package com.dao;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.commons.dbutils.QueryRunner;
@@ -53,5 +54,15 @@ public class BookDaoImpl {
 		QueryRunner qr = new QueryRunner(C3P0Util.getDataSource());
 		qr.update("update book set name=?,price=?,pnum=?,category=?,description=? where id=? ",
 				book.getName(),book.getPrice(),book.getPnum(),book.getCategory(),book.getDescription(),book.getId());
+	}
+
+	/**
+	 * 根据id删除图书
+	 * @param id
+	 * @throws SQLException 
+	 */
+	public void delBook(String id) throws SQLException {
+		QueryRunner qr = new QueryRunner(C3P0Util.getDataSource());
+		qr.update("delete from book where id = ?", id);
 	}
 }
