@@ -79,4 +79,25 @@ public class BookDaoImpl {
 		}
 		qr.batch("delete from book where id=?", params );
 	}
+
+	/**
+	 * 多条件查询图书
+	 * @param id
+	 * @param category
+	 * @param name
+	 * @param minprice
+	 * @param maxprice
+	 * @return
+	 */
+	public List<Book> searchBooks(String id, String category, String name,
+			String minprice, String maxprice) {
+		QueryRunner qr = new QueryRunner(C3P0Util.getDataSource());
+		String sql = "select * from book where 1=1 ";
+		if(!"".equals(id)){
+			sql+="and id=?";
+		}
+		qr.query(sql, rsh);
+		
+		return null;
+	}
 }

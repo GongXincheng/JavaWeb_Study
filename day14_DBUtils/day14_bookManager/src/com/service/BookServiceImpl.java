@@ -84,4 +84,9 @@ public class BookServiceImpl {
 			e.printStackTrace();
 		}
 	}
+
+	public List<Book> searchBooks(String id, String category, String name,
+			String minprice, String maxprice) {
+		return bookDao.searchBooks(id,category,name,minprice,maxprice);
+	}
 }
