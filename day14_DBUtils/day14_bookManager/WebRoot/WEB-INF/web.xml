@@ -23,6 +23,11 @@
     <servlet-name>DelBookServlet</servlet-name>
     <servlet-class>com.servlet.DelBookServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>DelAllBooksServlet</servlet-name>
+    <servlet-class>com.servlet.DelAllBooksServlet</servlet-class>
+  </servlet>
+
 
 
 
@@ -47,6 +52,10 @@
   <servlet-mapping>
     <servlet-name>DelBookServlet</servlet-name>
     <url-pattern>/servlet/delBookServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DelAllBooksServlet</servlet-name>
+    <url-pattern>/servlet/delAllBooksServlet</url-pattern>
   </servlet-mapping>
 
 </web-app>

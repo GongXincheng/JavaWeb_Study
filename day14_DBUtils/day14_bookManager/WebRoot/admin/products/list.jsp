@@ -29,6 +29,23 @@
 			ids[i].checked = flag;	//把ckAll的状态赋值给每一个ids[i]的元素
 		}
 	}
+	//批量删除
+	function delAllBooks(){
+		//得到所有复选框
+		var ids = document.getElementsByName("ids");
+		var str = "";
+		//循环得到选中的复选框的id
+		for(var i=0; i<ids.length; i++){
+			if(ids[i].checked){
+				str+="ids="+ids[i].value+"&";
+			}
+		}
+		str = str.substring(0, str.length-1);
+		//alert(str);	//ids=1001&ids=1002&ids=1003
+		if(str!=""){
+			location.href = "${pageContext.request.contextPath }/servlet/delAllBooksServlet?"+str;
+		}
+	}
 </script>
 </HEAD>
 <body>
@@ -114,6 +131,9 @@
 				</tr>
 				<tr>
 					<td class="ta_01" align="right">
+						<button type="button" id="delete" name="delete" value="批量删除"
+							class="button_delete" onclick="delAllBooks()">批量删除
+						</button>
 						<button type="button" id="add" name="add" value="&#28155;&#21152;"
 							class="button_add" onclick="addProduct()">&#28155;&#21152;
 						</button>
@@ -141,7 +161,7 @@
 								<tr onmouseover="this.style.backgroundColor = 'white'"
 									onmouseout="this.style.backgroundColor = '#F5FAFE';" >
 									<td style="CURSOR: hand; HEIGHT: 22px" align="center"
-										width="23"><input type="checkbox" name="ids" ></td>
+										width="23"><input type="checkbox" name="ids" value="${book.id }"></td>
 									<td style="CURSOR: hand; HEIGHT: 22px" align="center"
 										width="23">${book.id }</td>
 									<td style="CURSOR: hand; HEIGHT: 22px" align="center"
