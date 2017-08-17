@@ -65,4 +65,18 @@ public class BookDaoImpl {
 		QueryRunner qr = new QueryRunner(C3P0Util.getDataSource());
 		qr.update("delete from book where id = ?", id);
 	}
+
+	/**
+	 * 批量删除
+	 * @param ids
+	 * @throws Exception 
+	 */
+	public void deleteAllBooks(String[] ids) throws Exception {
+		QueryRunner qr = new QueryRunner(C3P0Util.getDataSource());
+		Object[][] params = new Object[ids.length][];
+		for (int i = 0; i < params.length; i++) {
+			params[i] = new Object[]{ids[i]};	//循环给每一个一维数组的元素赋值，值为id
+		}
+		qr.batch("delete from book where id=?", params );
+	}
 }

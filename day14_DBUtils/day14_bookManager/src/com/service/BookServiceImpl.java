@@ -72,4 +72,16 @@ public class BookServiceImpl {
 			e.printStackTrace();
 		}
 	}
+
+	/**
+	 * 批量删除
+	 * @param ids
+	 */
+	public void deleteAllBooks(String[] ids) {
+		try {
+			bookDao.deleteAllBooks(ids);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
