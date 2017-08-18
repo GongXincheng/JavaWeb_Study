@@ -43,6 +43,11 @@
     <servlet-name>CkEmailServlet</servlet-name>
     <servlet-class>com.servlet.CkEmailServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>SearchBookAJAXServlet</servlet-name>
+    <servlet-class>com.servlet.SearchBookAJAXServlet</servlet-class>
+  </servlet>
+
 
 
 
@@ -92,6 +97,10 @@
   <servlet-mapping>
     <servlet-name>CkEmailServlet</servlet-name>
     <url-pattern>/servlet/ckEmailServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SearchBookAJAXServlet</servlet-name>
+    <url-pattern>/servlet/searchBookAJAXServlet</url-pattern>
   </servlet-mapping>
 
 </web-app>
