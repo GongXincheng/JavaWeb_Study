@@ -4,8 +4,7 @@
 	
 </script>
 <script type="text/javascript">
-<!--
-	function fillNameValue(subDiv) {
+	/* function fillNameValue(subDiv) {
 		document.getElementById("name").value = subDiv.innerHTML;
 		
 		document.getElementById("content").style.display="none";
@@ -53,8 +52,10 @@
 	
 	function changeBackground_out(div){
 		div.style.background="white";
-	}
-//-->
+	}*/
+ 
+ 
+ 
 </script>
 
 <div id="divmenu">
@@ -90,7 +91,7 @@
 		style="color:#FFFF00">全部商品目录</a>
 </div>
 <div id="divsearch">
-	<form action="${pageContext.request.contextPath}/findProductBySearch"
+	<form action="${pageContext.request.contextPath}/servlet/searchBookAJAXServlet"
 		method="post">
 		<table width="100%" border="0" cellspacing="0">
 			<tr>
@@ -106,6 +107,6 @@
 
 	</form>
 </div>
-<div id="content"
-	style="background-color:white;width:128px; text-align:left;margin-left:945px;color:black;float:left;margin-top: -20px;display: none">
-</div>
+	<div id="context1" style="border: 1px solid red; width:127px;height:100px;position:absolute;left:944px;top:136px;background-color:white;">
+		
+	</div>
