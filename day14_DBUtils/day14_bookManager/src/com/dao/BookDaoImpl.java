@@ -7,6 +7,7 @@ import java.util.List;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.handlers.ScalarHandler;
 
 import com.domain.Book;
 import com.util.C3P0Util;
@@ -118,5 +119,29 @@ public class BookDaoImpl {
 		}
 		
 		return qr.query(sql, new BeanListHandler<Book>(Book.class), list.toArray());
+	}
+
+	/**
+	 * 得到总记录数
+	 * @return
+	 * @throws Exception
+	 */
+	public int count() throws Exception {
+		QueryRunner qr = new QueryRunner(C3P0Util.getDataSource());
+		long l = (Long)qr.query("select count(*) from book", new ScalarHandler(1));
+		return (int)l;
+	}
+
+	/**
+	 * 查找分页数据
+	 * @param currentPage
+	 * @param pageSize
+	 * @return
+	 * @throws Exception 
+	 */
+	public List<Book> findBooks(int currentPage, int pageSize) throws Exception {
+		QueryRunner qr = new QueryRunner(C3P0Util.getDataSource());
+		List<Book> list = qr.query("SELECT * FROM book LIMIT ?,?", new BeanListHandler<Book>(Book.class), (currentPage-1)*pageSize , pageSize);
+		return list;
 	}
 }
