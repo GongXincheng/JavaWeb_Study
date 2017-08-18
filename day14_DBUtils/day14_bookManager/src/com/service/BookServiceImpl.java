@@ -86,6 +86,15 @@ public class BookServiceImpl {
 		}
 	}
 
+	/**
+	 * 多条件查询图书
+	 * @param id
+	 * @param category
+	 * @param name
+	 * @param minprice
+	 * @param maxprice
+	 * @return
+	 */
 	public List<Book> searchBooks(String id, String category, String name,
 			String minprice, String maxprice) {
 		try {
@@ -96,6 +105,12 @@ public class BookServiceImpl {
 		return null;
 	}
 
+	/**
+	 * 查找分页数据
+	 * @param currentPage
+	 * @param pageSize
+	 * @return
+	 */
 	public PageBean findBooksPage(int currentPage, int pageSize) {
 		try {
 			int count = bookDao.count();	//获取总记录数
@@ -112,6 +127,20 @@ public class BookServiceImpl {
 			
 			return pb;
 		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	/**
+	 * 根据书名查找图书
+	 * @param name
+	 * @return
+	 */
+	public List<Object> searchBookByName(String name) {
+		try {
+			return bookDao.searchBookByName(name);
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return null;
