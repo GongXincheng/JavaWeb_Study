@@ -39,6 +39,11 @@
     <servlet-name>FindBookInfoServlet</servlet-name>
     <servlet-class>com.servlet.FindBookInfoServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>CkEmailServlet</servlet-name>
+    <servlet-class>com.servlet.CkEmailServlet</servlet-class>
+  </servlet>
+
 
 
 
@@ -83,6 +88,10 @@
   <servlet-mapping>
     <servlet-name>FindBookInfoServlet</servlet-name>
     <url-pattern>/servlet/findBookInfoServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CkEmailServlet</servlet-name>
+    <url-pattern>/servlet/ckEmailServlet</url-pattern>
   </servlet-mapping>
 
 </web-app>
