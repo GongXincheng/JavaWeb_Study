@@ -31,6 +31,16 @@
     <servlet-name>SearchBooksServlet</servlet-name>
     <servlet-class>com.servlet.SearchBooksServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>PageServlet</servlet-name>
+    <servlet-class>com.servlet.PageServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>FindBookInfoServlet</servlet-name>
+    <servlet-class>com.servlet.FindBookInfoServlet</servlet-class>
+  </servlet>
+
+
 
 
 
@@ -65,6 +75,14 @@
   <servlet-mapping>
     <servlet-name>SearchBooksServlet</servlet-name>
     <url-pattern>/servlet/searchBooksServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>PageServlet</servlet-name>
+    <url-pattern>/servlet/pageServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FindBookInfoServlet</servlet-name>
+    <url-pattern>/servlet/findBookInfoServlet</url-pattern>
   </servlet-mapping>
 
 </web-app>

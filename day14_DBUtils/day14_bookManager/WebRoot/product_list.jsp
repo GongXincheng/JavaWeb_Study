@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -7,7 +7,7 @@
 
 <title>bookStore列表</title>
 <%--导入css --%>
-<link rel="stylesheet" href="css/main.css" type="text/css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/main.css" type="text/css" />
 </head>
 
 <body class="main">
@@ -32,14 +32,13 @@
 								<h1>计算机</h1>&nbsp;&nbsp;&nbsp;&nbsp;共100种商品
 								<hr />
 								<div style="margin-top:20px; margin-bottom:5px">
-									<img src="images/productlist.gif" width="100%" height="38" />
+									<img src="${pageContext.request.contextPath }/images/productlist.gif" width="100%" height="38" />
 								</div>
 
 								<table cellspacing="0" class="booklist">
 									<tr>
-									
+						<c:forEach items="${pb.books }" var="book">
 										<td>
-
 											<div class="divbookpic">
 												<p>
 													<a href="#"><img src="" width="115" height="129"
@@ -48,10 +47,10 @@
 											</div>
 
 											<div class="divlisttitle">
-												<a href="#">书名:xxx<br />售价:xxx </a>
+												<a href="${pageContext.request.contextPath }/servlet/findBookInfoServlet?id=${book.id}">书名:${book.name }<br />售价:${book.price } </a>
 											</div>
 										</td>
-										
+						</c:forEach>
 									</tr>
 								</table>
 								
@@ -61,12 +60,11 @@
 									<ul>
 
 
-										<li class="disablepage">&lt;&lt;上一页</li>
+										<li class="disablepage"><a href="${pageContext.request.contextPath }/servlet/pageServlet?currentPage=${pb.currentPage==1 ? 1 : pb.currentPage-1}">&lt;&lt;上一页</a></li>
 										
-										
-										<li>第1页/共5页</li>
+										<li>第${pb.currentPage }页/共${pb.totalPage }页</li>
 
-										<li class="nextPage"><a href="#">&lt;&lt;下一页</a></li>
+										<li class="nextPage"><a href="${pageContext.request.contextPath }/servlet/pageServlet?currentPage=${pb.currentPage==pb.totalPage ? pb.totalPage : pb.currentPage+1}">&gt;&gt;下一页</a></li>
 
 
 									</ul>
