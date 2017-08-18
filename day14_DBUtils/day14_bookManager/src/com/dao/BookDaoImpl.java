@@ -1,6 +1,7 @@
 package com.dao;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.dbutils.QueryRunner;
@@ -88,16 +89,34 @@ public class BookDaoImpl {
 	 * @param minprice
 	 * @param maxprice
 	 * @return
+	 * @throws Exception 
 	 */
 	public List<Book> searchBooks(String id, String category, String name,
-			String minprice, String maxprice) {
+			String minprice, String maxprice) throws Exception {
 		QueryRunner qr = new QueryRunner(C3P0Util.getDataSource());
 		String sql = "select * from book where 1=1 ";
-		if(!"".equals(id)){
-			sql+="and id=?";
+		List<String> list = new ArrayList<String>();
+		if(!"".equals(id.trim())){
+			sql+="and id like ?";
+			list.add("%"+id.trim()+"%");
 		}
-		qr.query(sql, rsh);
+		if(!"".equals(category.trim())){
+			sql+="and category = ?";
+			list.add(category.trim());
+		}
+		if(!"".equals(name.trim())){
+			sql+="and name like ?";
+			list.add("%"+name.trim()+"%");
+		}
+		if(!"".equals(minprice.trim())){
+			sql+="and price>?";
+			list.add(minprice.trim());
+		}
+		if(!"".equals(maxprice.trim())){
+			sql+="and price<?";
+			list.add(maxprice.trim());
+		}
 		
-		return null;
+		return qr.query(sql, new BeanListHandler<Book>(Book.class), list.toArray());
 	}
 }

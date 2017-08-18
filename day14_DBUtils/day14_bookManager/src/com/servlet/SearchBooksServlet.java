@@ -26,7 +26,8 @@ public class SearchBooksServlet extends HttpServlet {
 		
 		BookServiceImpl bs = new BookServiceImpl();
 		List<Book> list = bs.searchBooks(id,category,name,minprice,maxprice);
-		
+		request.setAttribute("books", list); //把list放入request对象中
+		request.getRequestDispatcher("/admin/products/list.jsp").forward(request, response);
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)

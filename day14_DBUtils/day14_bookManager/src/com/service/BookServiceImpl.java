@@ -87,6 +87,11 @@ public class BookServiceImpl {
 
 	public List<Book> searchBooks(String id, String category, String name,
 			String minprice, String maxprice) {
-		return bookDao.searchBooks(id,category,name,minprice,maxprice);
+		try {
+			return bookDao.searchBooks(id,category,name,minprice,maxprice);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 }
