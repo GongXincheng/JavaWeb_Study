@@ -98,7 +98,7 @@
 				Search <input
 					type="text" name="name" class="inputtable" onkeyup="searchName();"
 					id="name" /> 
-					<input type="image" src="images/serchbutton.gif"
+					<input type="image" src="${pageContext.request.contextPath }/images/serchbutton.gif"
 					border="0" style="margin-bottom:-4px">
 				</td>
 			</tr>
