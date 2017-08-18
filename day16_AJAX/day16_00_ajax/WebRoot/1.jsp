@@ -28,6 +28,22 @@
 			//alert(req);
 		}
 </script>
+
+<script type="text/javascript">
+
+	window.onload = function(){
+		var req = getXMLHttpRequest();
+		req.onreadystatechange = function(){
+			if(req.readyState==4){
+				if(req.status==200){
+					alert(req.responseText);
+				}
+			}
+		}
+		req.open("get", "");
+		req.send(null);
+	}
+</script>
 </head>
 
 <body>
