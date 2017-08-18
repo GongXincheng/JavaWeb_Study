@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.dao.BookDaoImpl;
 import com.domain.Book;
+import com.domain.PageBean;
 
 public class BookServiceImpl {
 	//创建一个BookDaoImpl对象
@@ -89,6 +90,27 @@ public class BookServiceImpl {
 			String minprice, String maxprice) {
 		try {
 			return bookDao.searchBooks(id,category,name,minprice,maxprice);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public PageBean findBooksPage(int currentPage, int pageSize) {
+		try {
+			int count = bookDao.count();	//获取总记录数
+			int totalPage = (int) Math.ceil(count*1.0/pageSize);	//获取总页数
+			List<Book> books = bookDao.findBooks(currentPage,pageSize);
+			
+			//把5个变量封装到PageBean中，作为返回值
+			PageBean pb = new PageBean();
+			pb.setBooks(books);
+			pb.setCount(count);
+			pb.setTotalPage(totalPage);
+			pb.setCurrentPage(currentPage);
+			pb.setPageSize(pageSize);
+			
+			return pb;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
