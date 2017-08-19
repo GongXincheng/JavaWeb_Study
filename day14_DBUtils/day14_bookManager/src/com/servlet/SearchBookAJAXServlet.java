@@ -19,7 +19,6 @@ public class SearchBookAJAXServlet extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8"); 
 		
 		String name = new String(request.getParameter("name").getBytes("ISO-8859-1"), "UTF-8");
-		System.out.println(name);
 		BookServiceImpl bs = new BookServiceImpl();
 		List<Object> list = bs.searchBookByName(name);
 		

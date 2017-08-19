@@ -1,8 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/my.js">
-	
-</script>
+<script type="text/javascript"src="${pageContext.request.contextPath}/js/my.js"></script>
 <script type="text/javascript">
 	/* function fillNameValue(subDiv) {
 		document.getElementById("name").value = subDiv.innerHTML;
@@ -54,8 +51,58 @@
 		div.style.background="white";
 	}*/
  
- 
- 
+ window.onload = function(){
+	//得到搜索框对象
+	var searchElement = document.getElementById("name");
+	//得到DIV元素
+	var div = document.getElementById("context1");
+	searchElement.onkeyup = function(){	//给搜索框注册按键弹起事件
+		//获取文本框的值
+		var name = this.value;
+		
+		if(name==""){
+			div.style.display = "none";
+			return;
+		}
+		
+		//获取xhr对象
+		var xhr = getXMLHttpRequest();
+		
+		//处理结果
+		xhr.onreadystatechange = function(){
+			if(xhr.readyState==4){
+				if(xhr.status==200){
+					var str = xhr.responseText;	//得到服务器返回的数据
+					var ss = str.split(",");
+					var childDivs = "";
+					for(var i=0; i<ss.length; i++){
+						childDivs = childDivs + "<div onclick='writeText(this)' onmouseover='changBackground_over(this)' onmouseout='changBackground_out(this)'>"+ss[i]+"</div>" //把数组中的每个元素放在div中
+					}
+					div.innerHTML = childDivs;
+					div.style.display = "block";
+				}
+			}
+		}
+		
+		xhr.open("get", "${pageContext.request.contextPath}/servlet/searchBookAJAXServlet?name="+name+"&time="+new Date().getTime());
+		xhr.send(null);
+	}
+}
+
+	function changBackground_over(div){
+		div.style.backgroundColor = "#ccc";
+	}
+	function changBackground_out(div){
+		div.style.backgroundColor = "";
+	}
+	//填充文本到文本框
+	function writeText(div){
+		//得到文本框对象
+		var searchElement = document.getElementById("name");
+		searchElement.value = div.innerHTML;
+		//把父节点隐藏
+		div.parentNode.style.display = "none";
+	}
 </script>
 
 <div id="divmenu">
@@ -97,8 +144,7 @@
 			<tr>
 				<td style="text-align:right; padding-right:220px">
 				Search <input
-					type="text" name="name" class="inputtable" onkeyup="searchName();"
-					id="name" /> 
+					type="text" name="name" class="inputtable" id="name" /> 
 					<input type="image" src="${pageContext.request.contextPath }/images/serchbutton.gif"
 					border="0" style="margin-bottom:-4px">
 				</td>
@@ -107,6 +153,6 @@
 
 	</form>
 </div>
-	<div id="context1" style="border: 1px solid red; width:127px;height:100px;position:absolute;left:944px;top:136px;background-color:white;">
+	<div id="context1" style="display:block; width:128px;position:absolute;left:945px;top:133px;background-color:white;">
 		
 	</div>
