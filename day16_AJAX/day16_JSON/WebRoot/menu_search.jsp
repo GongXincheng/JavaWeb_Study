@@ -22,8 +22,7 @@
 		xhr.onreadystatechange = function(){
 			if(xhr.readyState==4){
 				if(xhr.status==200){
-					var str = xhr.responseText;	//得到服务器返回的数据
-					var ss = str.split(",");
+					var ss = eval("("+xhr.responseText+")");
 					var childDivs = "";
 					for(var i=0; i<ss.length; i++){
 						childDivs = childDivs + "<div onclick='writeText(this)' onmouseover='changBackground_over(this)' onmouseout='changBackground_out(this)'>"+ss[i]+"</div>" //把数组中的每个元素放在div中

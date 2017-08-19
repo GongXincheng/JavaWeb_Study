@@ -22,17 +22,18 @@ public class SearchBookAJAXServlet extends HttpServlet {
 		List<Object> list = bs.searchBookByName(name);
 		
 		//把集合中的数据转换为字符串返回到
-		String str = "";
+		/*String str = "[";
 		for (int i = 0; i < list.size(); i++) {
 			if(i>0){
-				str+=","+list.get(i);
-			}else{
-				str+=list.get(i);
+				str+=",";
 			}
+			str+="\""+list.get(i)+"\"";
 		}
+		str+="]";*/
 		
+		String str = "";
 		//把数据直接响应带客户端
-		response.getWriter().print(str);
+		response.getWriter().print(str);	//["1003","1004","1005","1006"]
 		
 		/*request.setAttribute("str", str);
 		request.getRequestDispatcher("/index.jsp").forward(request, response);*/
