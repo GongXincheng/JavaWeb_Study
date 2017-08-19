@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0"
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+  <servlet>
+    <servlet-name>BookListServlet</servlet-name>
+    <servlet-class>com.servlet.BookListServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AddBookServlet</servlet-name>
+    <servlet-class>com.servlet.AddBookServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>FindBookByIdServlet</servlet-name>
+    <servlet-class>com.servlet.FindBookByIdServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UpdateBookServlet</servlet-name>
+    <servlet-class>com.servlet.UpdateBookServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DelBookServlet</servlet-name>
+    <servlet-class>com.servlet.DelBookServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DelAllBooksServlet</servlet-name>
+    <servlet-class>com.servlet.DelAllBooksServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SearchBooksServlet</servlet-name>
+    <servlet-class>com.servlet.SearchBooksServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>PageServlet</servlet-name>
+    <servlet-class>com.servlet.PageServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>FindBookInfoServlet</servlet-name>
+    <servlet-class>com.servlet.FindBookInfoServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CkEmailServlet</servlet-name>
+    <servlet-class>com.servlet.CkEmailServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SearchBookAJAXServlet</servlet-name>
+    <servlet-class>com.servlet.SearchBookAJAXServlet</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>BookListServlet</servlet-name>
+    <url-pattern>/servlet/bookListServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddBookServlet</servlet-name>
+    <url-pattern>/servlet/addBookServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FindBookByIdServlet</servlet-name>
+    <url-pattern>/servlet/findBookByIdServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpdateBookServlet</servlet-name>
+    <url-pattern>/servlet/updateBookServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DelBookServlet</servlet-name>
+    <url-pattern>/servlet/delBookServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DelAllBooksServlet</servlet-name>
+    <url-pattern>/servlet/delAllBooksServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SearchBooksServlet</servlet-name>
+    <url-pattern>/servlet/searchBooksServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>PageServlet</servlet-name>
+    <url-pattern>/servlet/pageServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FindBookInfoServlet</servlet-name>
+    <url-pattern>/servlet/findBookInfoServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CkEmailServlet</servlet-name>
+    <url-pattern>/servlet/ckEmailServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SearchBookAJAXServlet</servlet-name>
+    <url-pattern>/servlet/searchBookAJAXServlet</url-pattern>
+  </servlet-mapping>
+
+</web-app>

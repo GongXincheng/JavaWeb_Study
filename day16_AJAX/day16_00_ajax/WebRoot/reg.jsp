@@ -60,7 +60,7 @@
 				}
 			}
 			//创建连接
-			xhr.open("get","${pageContext.request.contextPath }/servlet/ckNameServlet?name="+ name);
+			xhr.open("get","${pageContext.request.contextPath }/servlet/ckNameServlet?name="+name+"&time="+new Date().getTime());
 			//发送请求
 			xhr.send(null);
 		}
