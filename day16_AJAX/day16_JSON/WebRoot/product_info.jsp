@@ -1,7 +1,9 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -30,7 +32,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 					<table cellspacing="0" class="infocontent">
 						<tr>
-							<td><img src="${pageContext.request.contextPath }/ad/page_ad.jpg" width="645" height="84" />
+							<td><img
+								src="${pageContext.request.contextPath }/ad/page_ad.jpg"
+								width="645" height="84" />
 
 								<table width="100%%" border="0" cellspacing="0">
 									<tr>
@@ -43,13 +47,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											</div>
 
 											<div style="text-align:center; margin-top:25px">
-												<a href="#"> <img src="${pageContext.request.contextPath }/images/buybutton.gif" border="0" />
+												<a href="${pageContext.request.contextPath }/servlet/addCartServlet?id=${book.id}"> <img
+													src="${pageContext.request.contextPath }/images/buybutton.gif"
+													border="0" />
 												</a>
 											</div>
 										</td>
 										<td style="padding:20px 5px 5px 5px"><img
-											src="${pageContext.request.contextPath }/images/miniicon3.gif" width="16" height="13" /><font
-											class="bookname">&nbsp;&nbsp;${book.name }</font>
+											src="${pageContext.request.contextPath }/images/miniicon3.gif"
+											width="16" height="13" /><font class="bookname">&nbsp;&nbsp;${book.name }</font>
 
 											<hr />售价：<font color="#FF0000">￥:${book.price }元</font>
 											<hr /> 类别：${book.category }
@@ -59,8 +65,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												<b>内容简介：</b>
 											</p>${book.description }</td>
 									</tr>
-								</table>
-							</td>
+								</table></td>
 						</tr>
 					</table></td>
 			</tr>

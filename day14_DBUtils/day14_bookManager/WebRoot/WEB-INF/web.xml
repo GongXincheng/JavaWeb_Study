@@ -47,6 +47,11 @@
     <servlet-name>SearchBookAJAXServlet</servlet-name>
     <servlet-class>com.servlet.SearchBookAJAXServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>AddCartServlet</servlet-name>
+    <servlet-class>com.servlet.AddCartServlet</servlet-class>
+  </servlet>
+
 
 
 
@@ -101,6 +106,10 @@
   <servlet-mapping>
     <servlet-name>SearchBookAJAXServlet</servlet-name>
     <url-pattern>/servlet/searchBookAJAXServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddCartServlet</servlet-name>
+    <url-pattern>/servlet/addCartServlet</url-pattern>
   </servlet-mapping>
 
 </web-app>
