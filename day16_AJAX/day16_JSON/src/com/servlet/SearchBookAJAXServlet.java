@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import net.sf.json.JSONArray;
+
 import com.domain.Book;
 import com.service.BookServiceImpl;
 
@@ -31,7 +33,8 @@ public class SearchBookAJAXServlet extends HttpServlet {
 		}
 		str+="]";*/
 		
-		String str = "";
+		String str = JSONArray.fromObject(list).toString();
+		System.out.println(str);
 		//把数据直接响应带客户端
 		response.getWriter().print(str);	//["1003","1004","1005","1006"]
 		
