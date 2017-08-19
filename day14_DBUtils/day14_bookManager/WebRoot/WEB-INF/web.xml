@@ -51,6 +51,11 @@
     <servlet-name>AddCartServlet</servlet-name>
     <servlet-class>com.servlet.AddCartServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>changeNumServlet</servlet-name>
+    <servlet-class>com.servlet.ChangeNumServlet</servlet-class>
+  </servlet>
+
 
 
 
@@ -110,6 +115,10 @@
   <servlet-mapping>
     <servlet-name>AddCartServlet</servlet-name>
     <url-pattern>/servlet/addCartServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>changeNumServlet</servlet-name>
+    <url-pattern>/servlet/changeNumServlet</url-pattern>
   </servlet-mapping>
 
 </web-app>

@@ -9,13 +9,13 @@
 <script type="text/javascript">
 	function changeNum(id,num,totalCount){
 		num = parseInt(num);
-		totalCount =parseInt(totalCount);
+		totalCount = parseInt(totalCount);
 		
 		if(num<1){
 			if(confirm("是否确认要删除此商品？")){
 				num = 0;
 			}else{
-				num=1;
+				num = 1;
 			}
 		}
 		
@@ -89,10 +89,10 @@
 														<td width="10%">${entry.value*entry.key.price }</td>
 
 														<td width="10%"><a href="${pageContext.request.contextPath}/servlet/changeNumServlet?id=${entry.key.id}&num=0"
-															style="color:#FF0000; font-weight:bold">X</a></td>
+															style="color:#FF0000; font-weight:bold">×</a></td>
 													</tr>
 												</table>
-												<c:set var="sum" value="${sum+entry.value*entry.key.price }"> </c:set>
+					<c:set var="sum" value="${sum+entry.value*entry.key.price }"> </c:set>
 											</c:forEach>
 
 											<table cellspacing="1" class="carttable">
