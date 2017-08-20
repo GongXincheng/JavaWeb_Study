@@ -54,4 +54,14 @@ public class C3P0Util {
 		}
 	}
 	
+	
+	DataSource DataSource = new ComboPooledDataSource();
+	public Connection getConn(){
+		try {
+			return DataSource.getConnection();
+		} catch (SQLException e) {
+			throw new RuntimeException("服务器繁忙");
+		}
+	}
+	
 }
