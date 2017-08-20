@@ -27,8 +27,7 @@
 												<table width="100%" border="0" cellspacing="0">
 													<tr>
 														<td style="text-align:center; padding-top:20px"><img
-															src="images/logintitle.gif" width="150" height="30" />
-														</td>
+															src="images/logintitle.gif" width="150" height="30" /></td>
 													</tr>
 													<tr>
 														<td style="text-align:center;padding-top:20px;"><font
@@ -43,14 +42,12 @@
 																	<td
 																		style="text-align:right; padding-top:5px; width:25%">用户名：</td>
 																	<td style="text-align:left"><input name="username"
-																		type="text" class="textinput" />
-																	</td>
+																		type="text" class="textinput" /></td>
 																</tr>
 																<tr>
 																	<td style="text-align:right; padding-top:5px">密&nbsp;&nbsp;&nbsp;&nbsp;码：</td>
 																	<td style="text-align:left"><input name="password"
-																		type="password" class="textinput" />
-																	</td>
+																		type="password" class="textinput" /></td>
 																</tr>
 																<tr>
 																	<td colspan="2" style="text-align:center"><input
@@ -82,7 +79,8 @@
 														</td>
 													</tr>
 												</table>
-											</div></td>
+											</div>
+										</td>
 										<td style="text-align:left; padding-top:30px; width:60%"><h1>您还没有注册？</h1>
 											<p>注册新会员，享受更优惠价格!</p>
 											<p>千种图书，供你挑选！注册即享受丰富折扣和优惠，便宜有好货！超过万本图书任您选。</p>
@@ -90,13 +88,11 @@
 											<p style="text-align:right">
 												<a href="register.jsp"><img
 													src="images/signupbutton.gif" width="135" height="33" /> </a>
-											</p>
-										</td>
+											</p></td>
 									</tr>
 								</table>
 							</div>
-						</div>
-					</td>
+						</div></td>
 				</tr>
 			</table>
 		</form>
