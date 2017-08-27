@@ -21,9 +21,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    This is my JSP page. <br>
     <%
-    	session.invalidate();//使session销毁
+    	//session.invalidate();//使session销毁
+    
+    	request.setAttribute("name", "tom");
+    	request.setAttribute("name", "jerry");
+    	request.removeAttribute("name");
      %>
   </body>
 </html>
