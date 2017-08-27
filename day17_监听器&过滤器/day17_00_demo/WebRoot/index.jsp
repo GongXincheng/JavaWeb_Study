@@ -1,3 +1,4 @@
+<%@page import="com.domain.User"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
@@ -24,9 +25,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <%
     	//session.invalidate();//使session销毁
     
-    	request.setAttribute("name", "tom");
+    	/* request.setAttribute("name", "tom");
     	request.setAttribute("name", "jerry");
-    	request.removeAttribute("name");
+    	request.removeAttribute("name"); */
+    	
+    	session.setAttribute("u", new User());
      %>
   </body>
 </html>
