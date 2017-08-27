@@ -9,6 +9,10 @@
 		<listener-class>com.listener.MyServletContextListener</listener-class>
 	</listener>
 
+	<listener>
+		<listener-class>com.listener.MyHttpSessionListener</listener-class>
+	</listener>
+	
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
