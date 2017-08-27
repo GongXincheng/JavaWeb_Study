@@ -29,7 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	request.setAttribute("name", "jerry");
     	request.removeAttribute("name"); */
     	
-    	session.setAttribute("u", new User());
+    	//session.setAttribute("u", new User());
      %>
   </body>
 </html>
