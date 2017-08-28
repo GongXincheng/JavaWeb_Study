@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.domain.User;
 import com.service.UserService;
+import com.util.MD5Utils;
 
 public class LoginServlet extends HttpServlet {
 
@@ -17,6 +18,8 @@ public class LoginServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
+		//MD5加密
+		password = MD5Utils.md5(password);	
 		
 		UserService us = new UserService();
 		User user = us.findUser(username,password);
