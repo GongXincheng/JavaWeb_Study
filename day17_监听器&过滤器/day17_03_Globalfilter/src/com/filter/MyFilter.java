@@ -2,7 +2,10 @@ package com.filter;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.Enumeration;
+import java.util.Map;
 
+import javax.mail.Flags.Flag;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -57,7 +60,7 @@ class MyRequest extends HttpServletRequestWrapper{
 		this.request = request;
 	}
 
-	@Override
+/*	@Override
 	public String getParameter(String name) {
 		name = request.getParameter(name);
 		try {
@@ -66,7 +69,38 @@ class MyRequest extends HttpServletRequestWrapper{
 			e.printStackTrace();
 		}
 		return null;
-	}
+	}*/
 
+	@Override
+	public String getParameter(String name) {
+		Map<String, String[]> map = this.getParameterMap();
+		return map.get(name)[0];
+	}
+	
+	@Override
+	public String[] getParameterValues(String name) {
+		Map<String, String[]> map = this.getParameterMap();
+		return map.get(name);
+	}
+	
+	private boolean flag = true;
+	@Override
+	public Map<String, String[]> getParameterMap() {
+		Map<String, String[]> map = request.getParameterMap();	//可能会乱码
+		if(flag){
+			for (Map.Entry<String, String[]> me : map.entrySet()) {
+				String[] values = me.getValue();
+				for (int i = 0; i < values.length; i++) {
+					try {
+						values[i] = new String(values[i].getBytes("iso-8859-1"),"UTF-8");
+					} catch (UnsupportedEncodingException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+			flag = false;
+		}
+		return map;
+	}
 	
 }
