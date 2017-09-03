@@ -4,5 +4,7 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-	
+	<!-- <package name="p1" extends="struts-default">
+		<action name="hello" class=""></action>
+	</package> -->
 </struts>
