@@ -9,6 +9,7 @@
 		<action name="register" class="com.web.action.UserAction">
 			<result name="success" type="redirect">/success.jsp</result>
 			<result name="message" type="redirect">/message.jsp</result>
+			<result name="input">/register1.jsp</result>
 		</action>
 	</package>
 </struts>
