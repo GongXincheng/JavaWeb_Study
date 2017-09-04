@@ -43,6 +43,8 @@
 		
 		<!-- 动态参数封装的第二种形式的配置 -->
 		<action name="action3" class="com.web.action.Demo3Action"></action>
-			
+		
+		<!-- 模型驱动封住动态参数 -->
+		<action name="action4" class="com.web.action.Demo4Action"></action>
 	</package>
 </struts>

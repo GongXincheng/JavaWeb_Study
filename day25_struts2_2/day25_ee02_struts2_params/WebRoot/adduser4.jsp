@@ -7,10 +7,9 @@
 <title>动态参数封装</title>
 </head>
 <body>
-	<form action="${pageContext.request.contextPath }/action3.action" method="post">
-		<!-- 表单中的name属性取值必须和动作类中数据模型的set方法名相对应 -->
-		用户名：<input type="text" name="user.username"><br>
-		年龄：<input type="text" name="user.age"><br>
+	<form action="${pageContext.request.contextPath }/action4.action" method="post">
+		用户名：<input type="text" name="username"><br>
+		年龄：<input type="text" name="age"><br>
 		<input type="submit" value="提交"><br>
 	</form>
 </body>

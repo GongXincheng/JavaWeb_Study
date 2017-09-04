@@ -4,7 +4,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.web.domain.User;
 
 public class Demo3Action extends ActionSupport{
-	User user;
+	private User user;
 
 	public User getUser() {
 		return user;
