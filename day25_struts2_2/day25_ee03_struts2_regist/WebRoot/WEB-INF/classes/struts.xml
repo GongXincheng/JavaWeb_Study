@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<package name="p1" extends="struts-default">
+		<action name="register" class="com.web.action.UserAction">
+			<result name="success" type="redirect">/success.jsp</result>
+			<result name="message" type="redirect">/message.jsp</result>
+		</action>
+	</package>
+</struts>
