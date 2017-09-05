@@ -9,6 +9,11 @@
 		<action name="register" class="com.web.action.UserAction">
 			<result name="success" type="redirect">/success.jsp</result>
 			<result name="message" type="redirect">/message.jsp</result>
+			<result name="input">/register.jsp</result>
+		</action>
+		
+		<action name="findAll" class="com.web.action.UserAction" method="findAll">
+			<result>/findall.jsp</result>
 		</action>
 	</package>
 </struts>
