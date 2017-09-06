@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE validators PUBLIC
+  		"-//Apache Struts//XWork Validator 1.0.3//EN"
+  		"http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+  		
+<validators>
+	<!-- 基于字段的声明式验证 -->
+	
+	<!-- field标签的name的值对应的是 表单name属性的值 -->
+	<field name="username">
+		<field-validator type="requiredstring"></field-validator>
+	</field>
+</validators>
