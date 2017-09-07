@@ -9,6 +9,8 @@
 	
 	<!-- field标签的name的值对应的是 表单name属性的值 -->
 	<field name="username">
-		<field-validator type="requiredstring"></field-validator>
+		<field-validator type="requiredstring">
+			<message>用户名不能为空</message>
+		</field-validator>
 	</field>
 </validators>

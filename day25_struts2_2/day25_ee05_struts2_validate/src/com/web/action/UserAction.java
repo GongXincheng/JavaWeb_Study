@@ -28,7 +28,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 			//直接调用父类的 addFieldError()方法，存入错误信息,第一个参数是表单name属性的值。第二个参数是错误信息
 			super.addFieldError("username", "请输入用户名");
 		}
-	}*/
+	}
 	
 	public void validateExecute() {
 		if(StringUtils.isBlank(user.getUsername())){
@@ -36,7 +36,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 			super.addFieldError("username", "请输入用户名");
 		}
 	}
-	
+	*/
 	//@SkipValidation
 	public String findAll(){
 		
