@@ -4,7 +4,18 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-	<!-- <package name="p1" extends="struts-default">
-		<action name="hello" class=""></action>
-	</package> -->
+	<constant name="struts.devMode" value="true"/>
+	
+	<package name="p1" extends="struts-default">
+		<!-- 声明自定义拦截器 -->
+		<interceptors>
+			<interceptor name="demo1Interceptor" class="com.interceptor.Demo1Interceptor"></interceptor>
+		</interceptors>
+		
+		<action name="action1" class="com.action.Demo1Action" method="save">
+			<!-- 使用自定义拦截器 -->
+			<interceptor-ref name="demo1Interceptor"></interceptor-ref>
+			<result name="success">/demo1.jsp</result>
+		</action>
+	</package>
 </struts>
