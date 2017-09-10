@@ -10,3 +10,6 @@
 <br/>
 <h2>Tomcat version：</h2>
 <h4>apache-tomcat-7.0.52</h4>
+<br/>
+<h2>Struts2 version：</h2>
+<h4>struts-2.3.15.3</h4>
