@@ -23,7 +23,7 @@
 	<!-- OGNL表达式访问静态属性
 		方法：@全类名@静态属性名称
 	 -->
-	 <s:property value="@java.lang.Integer@MAX_VALUE" /><br>
+	 <s:property value="@java.lang.Integer@MAX_VALUE" /><br>	
 	 
 	 
 	 <%-- OGNL表达式访问静态方法
