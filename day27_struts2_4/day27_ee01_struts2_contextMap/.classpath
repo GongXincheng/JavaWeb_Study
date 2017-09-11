@@ -8,6 +8,10 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="E:/apache-tomcat-7.0.52/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="E:/apache-tomcat-7.0.52/lib/servlet-api.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
