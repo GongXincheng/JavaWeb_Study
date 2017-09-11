@@ -20,7 +20,7 @@ public class Demo1Action extends ActionSupport {
 		//2.往map中存入数据
 		context.put("contextMap", "hello ContextMap !");	//把数据直接存到了大Map中
 		
-		//-----------往session中存数据
+		//-----------往session中存数据--------------------------------------------
 		//第一种方式：获取key为session的Map
 		Map<String, Object> sessionAttribute = context.getSession(); //获取key为session的小map
 		sessionAttribute.put("SessionMap", "hello SessionMap!");
@@ -28,7 +28,7 @@ public class Demo1Action extends ActionSupport {
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		session.setAttribute("HttpSession", "Hello___HttpSession!");
 		
-		//-----------往application中存数据
+		//-----------往application中存数据--------------------------------------------
 		//方法1：
 		Map<String, Object> applicationAttribute = context.getApplication();
 		applicationAttribute.put("applicationAttribute", "Hello_ApplicationAttribute!");
