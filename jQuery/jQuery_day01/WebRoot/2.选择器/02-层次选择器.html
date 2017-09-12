@@ -8,6 +8,30 @@
  <script src="./script/assist.js" type="text/javascript"></script>
  <link rel="stylesheet" type="text/css" href="./css/style.css" />  
   <script type="text/javascript">
+  
+  $(document).ready(function(){
+//    <input type="button" value="选择 body内的所有div元素." id="btn1"/>		//爷孙关系
+		$("#btn1").click(function(){
+			$("body div").css("background-color","#ff0");
+		});
+//	  <input type="button" value="在body内,选择子元素是div的。" id="btn2"/>		//父子关系
+		$("#btn2").click(function(){
+			$("body>div").css("background-color","#ff0");
+		});
+//	  <input type="button" value="选择 id为one 的下一个div元素." id="btn3"/>		//兄弟关系
+		$("#btn3").click(function(){
+			$("#one+div").css("background-color","#ff0");
+		});
+//	  <input type="button" value="选择 id为two的元素后面的所有div兄弟元素." id="btn4"/>		//兄弟关系
+		$("#btn4").click(function(){
+			$("#two~div").css("background-color","#ff0");
+		});
+//	  <input type="button" value="选择 id为two的元素的所有div兄弟元素." id="btn5"/>		//兄弟关系
+		$("#btn5").click(function(){
+			$("#two").siblings("div").css("background-color","#ff0");
+		});
+  });
+  
   </script>
 </head>
 <body>
