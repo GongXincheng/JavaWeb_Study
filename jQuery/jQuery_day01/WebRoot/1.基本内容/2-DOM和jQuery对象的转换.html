@@ -7,5 +7,22 @@
 	<script src="../js/jquery-1.8.3.js"></script>
 <body>
 	<input type="text" id="username" value="jack"/>
+	
+	<script type="text/javascript">
+		var username = document.getElementById("username");
+	/* 	alert(username.value); */
+		
+		//dom对象转换为jQuery对象
+		var $username = $(username);
+//		alert($username.val());
+		
+		//jQuery对象转换为dom对象
+		//方法1： 数组索引方式
+		/* var username2 = $username[0];
+		alert(username2.value); */
+		//方法2：jQuery对象的get方法
+		var username3 = $username.get(0);
+		alert(username3.value);
+	</script>
 </body>
 </html>
