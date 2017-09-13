@@ -2,13 +2,42 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
- <title>08-表单对象属性过滤选择器.html</title>
+ <title>09-表单对象属性过滤选择器.html</title>
  <!--   引入jQuery -->
  <script src="../js/jquery-1.8.3.js" type="text/javascript"></script>
  <script src="./script/assist.js" type="text/javascript"></script>
  <link rel="stylesheet" type="text/css" href="./css/style.css" />  
  
   <script type="text/javascript">
+  	$(document).ready(function(){
+//  <button id="btn1">对表单内 可用input 赋值操作.</button>
+		/* $("#btn1").click(function(){
+			$("input:enabled").val("aaaaaaaaaaa");
+		}); */
+		$("#btn1").click(function(){
+			$("input:enabled").val("fawfafafvwa");
+		});
+//  <button id="btn2">对表单内 不可用input 赋值操作.</button>
+		/* $("#btn2").click(function(){
+			$("input:disabled").val("bbbbbbbbb");
+		}); */
+		$("#btn2").click(function(){
+			$("input:disabled").val("bbbbbbbbbbbb");
+		});
+//  <button id="btn3">获取多选框选中的个数.</button>
+		$("#btn3").click(function(){
+//			var s1 = $("[name='newsletter']:checked").length;
+			var s1 = $("[name='newsletter']:checked").size();
+			alert(s1);
+		});
+//  <button id="btn4">获取下拉框选中的内容.</button>
+		$("#btn4").click(function(){
+			$(":selected").each(function(){
+				$("#selectDivId").append( $(this).html() );
+			});
+		}); 
+		
+	});
   </script>
 
 </head>
