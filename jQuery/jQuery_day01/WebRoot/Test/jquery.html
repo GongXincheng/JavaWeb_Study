@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>动画测试</title>
+<script type="text/javascript" src="../js/jquery-1.8.3.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#s1").show(100);
+		$("#s2").show(800);
+		$("#s3").show(1500);
+	})
+</script>
+</head>
+<style type="text/css">
+.top{
+	height:40px;
+	background-color:#0CF;
+}
+.logo{
+	line-height:40px;
+	margin-left:50px;
+}
+span{
+	font-size:25px;
+	font-weight:700;
+	display: none;
+}
+</style>
+<body>
+
+	<div class="top">
+    	<div class="logo">
+        	<span id="s1">G</span>
+            <span id="s2">X</span>
+            <span id="s3">C</span>
+        </div>
+    </div>
+
+</body>
+</html>
