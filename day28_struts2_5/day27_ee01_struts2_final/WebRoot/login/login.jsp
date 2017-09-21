@@ -1,4 +1,5 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
+<%@taglib uri="/struts-tags" prefix="s" %>
 <script type="text/javascript">
 function ini(){
    document.form1.logonName.focus();
@@ -28,8 +29,9 @@ function ini(){
 									</tr>
 									<tr>
 										<td align="center" valign="bottom" background="${pageContext.request.contextPath}/images/loginbg.gif">
-											<form id="loginAction_home" name="form1" action="${pageContext.request.contextPath}/login/home.jsp" target="_parent" method="post">
-												<table border="0" align="center" cellpadding="2" cellspacing="0">
+											<s:form action="login" name="form1" target="_parent">
+<%-- 											<form id="loginAction_home" name="form1" action="${pageContext.request.contextPath}/login/home.jsp" target="_parent" method="post">
+ --%>												<table border="0" align="center" cellpadding="2" cellspacing="0">
 													<tr align="center">
 														<td height="30" colspan="2" style="border-bottom: 1px dotted #cccccc">
 															<strong style="font-size: 14px;">请登录</strong>
@@ -40,7 +42,8 @@ function ini(){
 															<font color="000F60"><strong>用户名：</strong> </font>
 														</td>
 														<td>
-															<input type="text" name="logonName" value="" id="logonName" class="text" style="width: 160px;"/>
+															<s:textfield name="logonName" id="logonName" cssClass="text" cssStyle="width: 160px;" ></s:textfield>
+															<!-- <input type="text" name="logonName" value="" id="logonName" class="text" style="width: 160px;"/> -->
 														</td>
 													</tr>
 													<tr>
@@ -48,27 +51,29 @@ function ini(){
 															<strong><font color="000F60">密码： </font> </strong>
 														</td>
 														<td>
-															<input type="password" name="logonPwd" id="logonPwd" class="text" style="width: 160px;"/>
+															<s:password name="logonPwd" id="logonPwd" cssClass="text" cssStyle="width: 160px;"></s:password>
+															<!-- <input type="password" name="logonPwd" id="logonPwd" class="text" style="width: 160px;"/> -->
 														</td>
 													</tr>
 													<tr>
 														<td height="30" nowrap colspan="2">
-															<strong><font color="red"></font> </strong>
+															<strong><font color="red"><s:actionerror/></font> </strong>
 														</td>
 													</tr>
 													<tr>
 														<td height="30">
 														</td>
+															
 														<td>
-															<input type="submit" name="submit" value="&#30331;&#24405;" class="buttoninput"/>
-
-															<input type="reset" name="reset" value="&#21462;&#28040;" class="buttoninput"/>
-
+															<!-- <input type="submit" name="submit" value="&#30331;&#24405;" class="buttoninput"/>
+															<input type="reset" name="reset" value="&#21462;&#28040;" class="buttoninput"/> -->
+															<s:submit value="登 录" cssClass="buttoninput"></s:submit>
+															<s:reset value="重置" cssClass="buttoninput"></s:reset>
 														</td>
 													</tr>
 												</table>
-											</form>
-
+											<!-- </form> -->
+											</s:form>
 
 
 

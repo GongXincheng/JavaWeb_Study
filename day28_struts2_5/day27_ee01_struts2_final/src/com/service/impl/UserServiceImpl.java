@@ -3,15 +3,15 @@ package com.service.impl;
 import java.util.List;
 
 import com.dao.IUserDao;
+import com.dao.impl.UserDaoImpl;
 import com.domain.User;
-import com.factory.BeanFactory;
 import com.service.IUserService;
 
 public class UserServiceImpl implements IUserService {
 	
-	private IUserDao dao = (IUserDao)BeanFactory.newInstance().getDao("USERDAO");
+	//private IUserDao dao = (IUserDao)BeanFactory.newInstance().getDao("USERDAO");
 	//private IUserDao dao = new UserDaoImplForOracle();
-	
+	private IUserDao dao = new UserDaoImpl();
 	
 	public User login(String logonName, String logonPwd) {
 		return dao.selectUserByInfo(logonName,logonPwd);

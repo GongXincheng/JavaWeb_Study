@@ -1,6 +1,11 @@
 package com.action;
 
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.ServletActionContext;
+
 import com.domain.User;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.service.IUserService;
@@ -20,8 +25,10 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 			addActionError("用户名不存在，或密码错误!");
 			return "input";
 		}
-		
-		
+		//如果登陆成功将dbuser存到session域中
+//		ActionContext.getContext().getSession().put("user", dbUser);
+		HttpSession session = ServletActionContext.getRequest().getSession();
+		session.setAttribute("user", dbUser);
 		
 		return SUCCESS;
 	}
