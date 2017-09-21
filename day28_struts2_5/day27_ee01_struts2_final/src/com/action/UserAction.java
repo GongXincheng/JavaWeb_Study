@@ -17,6 +17,13 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 	private IUserService service = new UserServiceImpl();
 	private User user = new User();
 
+//添加用户
+	public String add(){
+		
+		
+		return SUCCESS;
+	}
+	
 //登录
 	public String login(){
 		User dbUser = service.login(user.getLogonName(), user.getLogonPwd());

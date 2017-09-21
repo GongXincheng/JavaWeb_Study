@@ -1,4 +1,6 @@
 eclipse.preferences.version=1
+encoding//WebRoot/jquery/jquery.datepick-zh-CN.js=UTF-8
 encoding//src/com/dao=UTF-8
 encoding//src/com/dao/IUserDao.java=UTF-8
+encoding//src/com/service/IUserService.java=UTF-8
 encoding/src=UTF-8
