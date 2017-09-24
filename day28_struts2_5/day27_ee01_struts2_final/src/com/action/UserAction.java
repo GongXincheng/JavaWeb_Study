@@ -4,6 +4,7 @@ import java.io.File;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -11,7 +12,6 @@ import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.util.TokenHelper;
 
 import com.domain.User;
-import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.service.IUserService;
@@ -22,10 +22,19 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 
 	private IUserService service = new UserServiceImpl();
 	private User user = new User();
+	//用于存放所有用户
+	private List<User> users;
 	//保存文件的file
 	private File upload;
 	//文件名
 	private String uploadFileName;
+
+//查询所有用户---------------------------------------------------------------------
+	public String findAll(){
+		users = service.findAllUser();
+		
+		return SUCCESS;
+	}
 	
 //添加用户--------------------------------------------------------------------------
 	public String add(){
@@ -111,6 +120,14 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 
 	public void setUploadFileName(String uploadFileName) {
 		this.uploadFileName = uploadFileName;
+	}
+
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
 	}
 	
 }
