@@ -4,8 +4,10 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 	
 <struts>
-	<constant name="struts.devMode" value="true"/>
-	<constant name="struts.ui.theme" value="simple"></constant>
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.ui.theme" value="simple" />
+	<!-- 开启静态方法调用 -->
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true"/>
 	
 	<package name="p1" extends="struts-default">
 		<action name="login" class="com.action.UserAction" method="login">
@@ -31,6 +33,16 @@
 		<!-- 查看用户信息 -->
 		<action name="findUserById" class="com.action.UserAction" method="findUserById">
 			<result name="success">/user/view.jsp</result>
+		</action>
+		
+		<!-- 文件下载 -->
+		<action name="download" class="com.action.UserAction" method="download">
+			<result type="stream">
+				<!-- 给stream的结果类型注入参数：1.流的信息，2.告知浏览器以下载的方式打开，3.告知浏览器	相应正文的MIME类型-->
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">attachment;filename=${@java.net.URLEncoder@encode(oldFilename,"UTF-8")}</param>
+				<param name="contentType">application/octet-stream</param>
+			</result>
 		</action>
 	</package>
 	

@@ -1,6 +1,9 @@
 package com.action;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -23,16 +26,33 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 
 	private IUserService service = new UserServiceImpl();
 	private User user = new User();
-	//用于存放所有用户
-	private List<User> users;
-	//保存文件的file
-	private File upload;
-	//文件名
-	private String uploadFileName;
+	private List<User> users; 		//用于存放所有用户
+	private File upload;		 	//保存文件的file
+	private String uploadFileName;  //文件名
 	
-//查看用户详情
-	public String findUserById(){
+//文件下载---------------------------------------------------------------------
+	private InputStream inputStream;
+	private String oldFilename;
+	
+	public String download() throws Exception{
+		//1.获取用户的信息
+		User dbUser = service.findUserById(user.getUserID());
 		
+		//2.文件存放的路径
+		String filePath = ServletActionContext.getServletContext().getRealPath("/files");
+		//原文件名称
+		oldFilename = dbUser.getFilename().substring(dbUser.getFilename().indexOf("_")+1);
+		
+		//3.给字节输入流赋值	
+		inputStream = new FileInputStream(filePath + File.separator + dbUser.getPath() + File.separator + dbUser.getFilename());
+		
+		//4.返回成功
+		return SUCCESS;
+		//5.剩下的交给stream类型的结果视图
+	}
+	
+//查看用户详情---------------------------------------------------------------------
+	public String findUserById(){
 		user = service.findUserById(user.getUserID());
 		//把user对象压入栈顶
 		ActionContext.getContext().getValueStack().push(user);
@@ -43,13 +63,11 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 //查询所有用户---------------------------------------------------------------------
 	public String findAll(){
 		users = service.findAllUser();
-		
 		return SUCCESS;
 	}
 	
 //添加用户--------------------------------------------------------------------------
 	public String add(){
-		
 		//step1:文件保存的路径  	E:\apache-tomcat-7.0.52\webapps\day27_ee01_struts2_final\files
 		String filePath = ServletActionContext.getServletContext().getRealPath("/files");	//给定虚拟路径返回包含实际路径的 String
 		//子文件夹名称
@@ -63,8 +81,8 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 		user.setFilename(fileName);
 		
 		//step4：上传文件操作
-		boolean b = upload.renameTo(new File(filePath+File.separator+dir,fileName));
-		System.out.println(b);
+		boolean b = upload.renameTo(new File(filePath+ File.separator+ dir, fileName));
+		System.out.println("上传是否成功:"+b);
 		
 		//step5:保存用户
 		int res = service.saveUser(user);
@@ -95,16 +113,12 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 			return "input";
 		}
 		//如果登陆成功将dbuser存到session域中
-//		ActionContext.getContext().getSession().put("user", dbUser);
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		session.setAttribute("user", dbUser);
 		
 		return SUCCESS;
 	}
 
-	
-	
-	
 	public User getModel() {
 		return user;
 	}
@@ -140,4 +154,21 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 	public void setUsers(List<User> users) {
 		this.users = users;
 	}
+
+	public InputStream getInputStream() {
+		return inputStream;
+	}
+
+	public void setInputStream(InputStream inputStream) {
+		this.inputStream = inputStream;
+	}
+
+	public String getOldFilename() {
+		return oldFilename;
+	}
+
+	public void setOldFilename(String oldFilename) {
+		this.oldFilename = oldFilename;
+	}
+	
 }

@@ -75,9 +75,9 @@
 						简历资料：
 					</td>
 					<td class="ta_01" bgColor="#ffffff" colSpan="3">
-					<s:a action="download" namespace="/user" var="url" >
+					<s:url action="download" namespace="/user" var="url" >
 						<s:param name="userID" value="userID"></s:param>
-					</s:a>
+					</s:url>
 						<a href="#" onclick="openWindow('<s:property value="#url"/>','700','400')" class="cl_01">
 						     <s:property value="filename.substring(filename.indexOf('_')+1)"/>
 						     <%-- <%
