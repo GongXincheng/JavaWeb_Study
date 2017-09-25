@@ -29,6 +29,11 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 	private File upload;		 	//保存文件的file
 	private String uploadFileName;  //文件名
 	
+//对条件查询-----------------------------------------------------------------
+	public String findUserByCondition(){
+		
+		return SUCCESS;
+	}
 //编辑用户--------------------------------------------------------------------
 	public String edit(){
 		if(upload == null){
