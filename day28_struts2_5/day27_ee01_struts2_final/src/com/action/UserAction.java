@@ -30,6 +30,14 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 	private File upload;		 	//保存文件的file
 	private String uploadFileName;  //文件名
 	
+//删除用户---------------------------------------------------------------------
+	public String delete(){
+		int res = service.removeUser(user.getUserID());
+		if(res>0){
+			return SUCCESS;			
+		}
+		return null;
+	}
 //文件下载---------------------------------------------------------------------
 	private InputStream inputStream;
 	private String oldFilename;
