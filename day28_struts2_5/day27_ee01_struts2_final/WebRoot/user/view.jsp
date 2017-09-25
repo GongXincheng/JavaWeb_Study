@@ -75,9 +75,12 @@
 						简历资料：
 					</td>
 					<td class="ta_01" bgColor="#ffffff" colSpan="3">
-					<s:url action="download" namespace="/user" var="url" >
-						<s:param name="userID" value="userID"></s:param>
-					</s:url>
+					
+						<%-- 获取url --%>
+						<s:url action="download" namespace="/user" var="url" >
+							<s:param name="userID" value="userID"></s:param>
+						</s:url>
+						
 						<a href="#" onclick="openWindow('<s:property value="#url"/>','700','400')" class="cl_01">
 						     <s:property value="filename.substring(filename.indexOf('_')+1)"/>
 						     <%-- <%
@@ -85,6 +88,8 @@
 						     	filename.substring(filename.indexOf("_")+1);
 						     %> --%>
 						</a>
+						
+						
 					</td>
 				</tr>
 				<TR>

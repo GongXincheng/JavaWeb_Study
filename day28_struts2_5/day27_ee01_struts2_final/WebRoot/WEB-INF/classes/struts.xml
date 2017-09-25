@@ -10,6 +10,7 @@
 	<constant name="struts.ognl.allowStaticMethodAccess" value="true"/>
 	
 	<package name="p1" extends="struts-default">
+		<!-- 用户登录 -->
 		<action name="login" class="com.action.UserAction" method="login">
 			<result name="success">/login/home.jsp</result>
 			<result name="input">/login/login.jsp</result>
@@ -46,9 +47,22 @@
 			</result>
 		</action>
 		
+		<!-- 删除用户 -->
 		<action name="delete" class="com.action.UserAction" method="delete">
 			<result name="success" type="redirectAction">findAll</result>
 		</action>
+		
+		<!-- 显示编辑用户页面  -->
+		<action name="editUI" class="com.action.UserAction" method="editUI">
+			<result>/user/edit.jsp</result>
+		</action>
+		
+		<!-- 编辑用户  -->
+		<action name="edit" class="com.action.UserAction" method="edit">
+			<result type="redirectAction">findAll</result>
+			<result name="input">/user/edit.jsp</result>
+		</action>
+		
 	</package>
 	
 </struts>

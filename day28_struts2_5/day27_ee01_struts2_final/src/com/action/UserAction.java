@@ -2,7 +2,6 @@ package com.action;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -30,6 +29,47 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 	private File upload;		 	//保存文件的file
 	private String uploadFileName;  //文件名
 	
+//编辑用户--------------------------------------------------------------------
+	public String edit(){
+		if(upload == null){
+			//没有选择上传文件 使用原来的文件上传
+			User dbUser = service.findUserById(user.getUserID());
+			user.setPath(dbUser.getPath());
+			user.setFilename(dbUser.getFilename());
+			int res = service.modifyUser(user);
+			if(res>0)
+				return SUCCESS;
+			return null;
+		}
+		else{
+			//step1:文件保存的路径  	E:\apache-tomcat-7.0.52\webapps\day27_ee01_struts2_final\files
+			String filePath = ServletActionContext.getServletContext().getRealPath("/files");	//给定虚拟路径返回包含实际路径的 String
+			//子文件夹名称
+			String dir = generateChildPath(filePath);	// 2017-09-24
+			//step2:生成带有随机性的文件名
+			String fileName = TokenHelper.generateGUID()+"_"+uploadFileName;	//7DCOC9YJFC7KL39WKXFM91L4DV3IGF59_head_2.jpg
+			//step3：为user模型中缺少的属性赋值
+			user.setPath(dir);
+			user.setFilename(fileName);
+			//step4：上传文件操作
+			boolean b = upload.renameTo(new File(filePath+ File.separator+ dir, fileName));
+			System.out.println("上传是否成功:"+b);
+			//step5:保存用户
+			int res = service.modifyUser(user);
+			if(res>0)
+				return SUCCESS;
+			return null;
+		}
+	}
+	
+//显示编辑页面的动作方法------------------------------------------------------
+	public String editUI(){
+		user = service.findUserById(user.getUserID());
+		//把user对象压入栈顶
+		ActionContext.getContext().getValueStack().push(user);
+		return SUCCESS;
+	}
+	
 //删除用户---------------------------------------------------------------------
 	public String delete(){
 		int res = service.removeUser(user.getUserID());
@@ -38,6 +78,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 		}
 		return null;
 	}
+	
 //文件下载---------------------------------------------------------------------
 	private InputStream inputStream;
 	private String oldFilename;
