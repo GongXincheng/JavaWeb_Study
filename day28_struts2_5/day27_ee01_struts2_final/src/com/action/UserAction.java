@@ -12,6 +12,7 @@ import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.util.TokenHelper;
 
 import com.domain.User;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.service.IUserService;
@@ -28,6 +29,16 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 	private File upload;
 	//文件名
 	private String uploadFileName;
+	
+//查看用户详情
+	public String findUserById(){
+		
+		user = service.findUserById(user.getUserID());
+		//把user对象压入栈顶
+		ActionContext.getContext().getValueStack().push(user);
+		
+		return SUCCESS;
+	}
 
 //查询所有用户---------------------------------------------------------------------
 	public String findAll(){
@@ -129,5 +140,4 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 	public void setUsers(List<User> users) {
 		this.users = users;
 	}
-	
 }

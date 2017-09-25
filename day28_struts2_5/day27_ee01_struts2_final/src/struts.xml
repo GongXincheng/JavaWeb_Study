@@ -27,6 +27,11 @@
 		<action name="findAll" class="com.action.UserAction" method="findAll">
 			<result name="success">/user/list.jsp</result>
 		</action>
+		
+		<!-- 查看用户信息 -->
+		<action name="findUserById" class="com.action.UserAction" method="findUserById">
+			<result name="success">/user/view.jsp</result>
+		</action>
 	</package>
 	
 </struts>
