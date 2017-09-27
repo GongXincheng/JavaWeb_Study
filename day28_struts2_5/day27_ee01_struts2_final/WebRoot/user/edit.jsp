@@ -144,7 +144,7 @@
 					</td>
 				</tr>
 			</table>
-			<s:hidden name="userID"></s:hidden>
+			<s:hidden name="%{userID}"></s:hidden>
 		</s:form>
 	</body>
 </HTML>
