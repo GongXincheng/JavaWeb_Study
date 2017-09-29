@@ -23,7 +23,6 @@
 		<property name="hibernate.current_session_context_class">thread</property>
 		<!-- 自动提交事务 -->
 		<property name="hibernate.connection.autocommit">true</property>
-		
 		<!-- 加载映射文件 -->
 		<mapping resource="com/a_hello/User.hbm.xml"/>
 	</session-factory>
