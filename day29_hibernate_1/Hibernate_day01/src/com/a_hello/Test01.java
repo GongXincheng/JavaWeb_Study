@@ -10,7 +10,7 @@ import org.hibernate.cfg.Configuration;
 import org.junit.Test;
 
 public class Test01 {
-	/**
+ 	/**
 	 * 查找
 	 */
 	@Test
