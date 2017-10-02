@@ -13,8 +13,11 @@
 		<!-- 其他字段 -->
 		<property name="name" column="name" type="string"></property>
 		
-		<!-- 表达一对多关系中的集合 -->
-		<set name="orders">
+		<!-- 表达一对多关系中的集合 
+			inverse:(反转)是否将关系的维护反转给另外一方，默认值为false
+				true: 在Customer中放弃维护外键关系
+		-->
+		<set name="orders" inverse="true">
 			<!-- key用来描述外键，column:外键的值 -->
 			<key column="cid"></key>
 			<!-- 表示为一对多的关系 -->
