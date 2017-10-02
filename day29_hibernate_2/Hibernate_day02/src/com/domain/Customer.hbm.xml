@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!-- 客户 -->
+<hibernate-mapping package="com.domain">
+	<class name="Customer" table="t_customer">
+		<!-- 主键 -->
+		<id name="id" column="id">
+			<generator class="native"></generator>
+		</id>
+		<!-- 其他字段 -->
+		<property name="name" column="name" type="string"></property>
+		
+		<!-- 表达一对多关系中的集合 -->
+		<set name="orders">
+			<!-- key用来描述外键，column:外键的值 -->
+			<key column="cid"></key>
+			<!-- 表示为一对多的关系 -->
+			<one-to-many class="Order"/>
+		</set>
+	</class>
+</hibernate-mapping>
