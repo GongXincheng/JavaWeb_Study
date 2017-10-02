@@ -12,4 +12,7 @@
 <h4>apache-tomcat-7.0.52</h4>
 <br/>
 <h2>Struts2 version：</h2>
-<h4>struts-2.3.15.3</h4>
+<h4>2.3.15.3</h4>
+<br/>
+<h2>Hibernate version：</h2>
+<h4>3.6.10</h4>
