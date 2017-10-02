@@ -14,7 +14,7 @@ public class Demo1 {
 
 	@Test	//保存操作
 	//(inverse="false") 3条：insert，2条：update
-	//(inverse="true") 3条：insert ：外键由Order维护
+	//=>(inverse="true") 3条：insert ：外键由Order维护
 	public void fun1(){
 		
 		Session session = HibernateUtils.openSession();
@@ -30,7 +30,7 @@ public class Demo1 {
 		Order o2 = new Order();
 		o2.setName("蜡烛");
 		
-/*		c.getOrders().add(o1);	//Customer维护外键关系
+/*		c.getOrders().add(o1);	//Customer不再维护外键关系
 		c.getOrders().add(o2); 						*/		
 		
 		o1.setCustomer(c);
@@ -47,8 +47,8 @@ public class Demo1 {
 		
 	}
 	
-	@Test //删除
-	//结论：维护一方的对象时，会自动维护另一方的关系
+	@Test //删除							^	
+	//结论：维护一方的对象时，会自动维护另一方的关系	|
 	//如果将Customer配置文件中的 inverse="true"时，会报错
 		//原因：Customer不再维护外键，直接删除Customer违反外键约束
 	public void fun2(){
