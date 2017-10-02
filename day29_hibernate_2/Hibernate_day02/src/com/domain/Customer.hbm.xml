@@ -25,7 +25,7 @@
 				all-delete-orphan : 三个整合
 				
 		-->
-		<set name="orders" inverse="false" cascade="delete">
+		<set name="orders" inverse="false" cascade="all">
 			<!-- key用来描述外键，column:外键的值 -->
 			<key column="cid"></key>
 			<!-- 表示为一对多的关系 -->

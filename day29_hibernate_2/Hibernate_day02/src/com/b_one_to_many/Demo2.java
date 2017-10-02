@@ -32,8 +32,36 @@ public class Demo2 {
 		
 		c.getOrders().add(o1);	//弃维护外键关系
 		c.getOrders().add(o2); 		
-		o1.setCustomer(c);		//维护外键关系
-		o2.setCustomer(c);
+		/*o1.setCustomer(c);		//维护外键关系
+		o2.setCustomer(c);*/
+		
+		session.save(c);
+		
+		//----------------------------------------------------
+		transaction.commit();
+		session.close();
+		
+	}
+	
+	@Test
+	//增加(2)
+	//cascade="save-update"  inverse="false"
+	public void fun(){
+		
+		Session session = HibernateUtils.openSession();
+		Transaction transaction = session.beginTransaction();
+		//----------------------------------------------------
+		
+		Customer c = new Customer();
+		c.setName("tom");
+		
+		Order o1 = new Order();
+		o1.setName("肥皂");
+		Order o2 = new Order();
+		o2.setName("蜡烛");
+		
+		c.getOrders().add(o1);	//护外键关系
+		c.getOrders().add(o2); 		
 		
 		session.save(c);
 		
@@ -52,7 +80,7 @@ public class Demo2 {
 		Transaction transaction = session.beginTransaction();
 		//----------------------------------------------------
 		
-		Customer c = (Customer)session.get(Customer.class, 14);//1条select
+		Customer c = (Customer)session.get(Customer.class, 17);//1条select
 
 		Set<Order> set = c.getOrders();//1条select
 		for(Order s : set){
@@ -66,7 +94,7 @@ public class Demo2 {
 	
 	@Test
 	//删除
-	//cascade="delete"	inverse="false"
+	//cascade="delete"	inverse="true"
 	//删除Customer时，会将Customer下的订单一并删除.
 	public void fun3(){
 		
@@ -75,7 +103,7 @@ public class Demo2 {
 		
 		//----------------------------------------------------
 		
-		Customer c = (Customer) session.get(Customer.class, 10);//1条select
+		Customer c = (Customer) session.get(Customer.class, 17);//1条select
 		session.delete(c);
 		
 		//----------------------------------------------------
@@ -95,6 +123,24 @@ public class Demo2 {
 		//----------------------------------------------------
 		
 		Order o = (Order) session.get(Order.class, 17);
+		session.delete(o);
+		
+		//----------------------------------------------------
+		
+		transaction.commit();
+		session.close();
+	}
+	
+	@Test
+	//删除单个订单
+	public void fun5(){
+		
+		Session session = HibernateUtils.openSession();
+		Transaction transaction = session.beginTransaction();
+		
+		//----------------------------------------------------
+		
+		Order o = (Order) session.get(Order.class, 27);
 		session.delete(o);
 		
 		//----------------------------------------------------
