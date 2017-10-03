@@ -13,7 +13,7 @@ public class Demo {
 	// <class name="Customer" table="t_customer" lazy="true">
 	public void fun1(){
 		
-		Session session = HibernateUtil.openSession();
+		Session session = HibernateUtil.openSession(  );
 		Transaction transaction = session.beginTransaction();
 		//---------------------------------------------------
 		Customer c = (Customer)session.load(Customer.class, 1);		

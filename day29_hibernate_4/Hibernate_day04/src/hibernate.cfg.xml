@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hiber_day04</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">123</property>
+
+		<property name="format_sql">true</property>
+		<property name="show_sql">true</property>
+		<property name="hbm2ddl.auto">update</property>
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="current_session_context_class">thread</property>
+		<!-- 
+			自动提交事务：
+				<property name="hibernate.connection.autocommit">true</property> 
+		-->
+		
+		<!-- c3p0配置 -->
+		<property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+		<property name="hibernate.c3p0.max_size">5</property>
+		<property name="hibernate.c3p0.min_size">2</property>
+		
+		<mapping resource="com/domain/.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>
