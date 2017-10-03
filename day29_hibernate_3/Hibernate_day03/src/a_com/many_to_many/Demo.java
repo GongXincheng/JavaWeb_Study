@@ -1,4 +1,4 @@
-package com.many_to_many;
+package a_com.many_to_many;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
