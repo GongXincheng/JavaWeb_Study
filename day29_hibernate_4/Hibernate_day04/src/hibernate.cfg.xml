@@ -25,6 +25,7 @@
 		<property name="hibernate.c3p0.max_size">5</property>
 		<property name="hibernate.c3p0.min_size">2</property>
 		
-		<mapping resource="com/domain/.hbm.xml" />
+		<mapping resource="com/domain/Customer.hbm.xml"/>
+		<mapping resource="com/domain/Order.hbm.xml"/>
 	</session-factory>
 </hibernate-configuration>
