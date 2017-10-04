@@ -1,7 +1,5 @@
 package com.a_hello;
 
-import java.util.UUID;
-
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
