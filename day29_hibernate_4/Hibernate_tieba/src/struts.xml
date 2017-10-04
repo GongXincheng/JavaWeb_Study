@@ -7,8 +7,15 @@
 	<constant name="struts.devMode" value="true"/>
 	
 	<package name="tieba" extends="struts-default" namespace="/">
-		<action name="action1_*" class="com.web.action.Demo1Action" method="{1}">
-			<result>/index.jsp</result>
+	
+		<action name="TopicAction_*" class="com.web.action.TopicAction" method="{1}">
+			<!-- 查询List -->
+			<result name="toList" type="redirectAction">
+				<param name="actionName">TopicAction_list</param>
+				<param name="namespace">/</param>
+			</result>
+			
 		</action>
+		
 	</package>
 </struts>

@@ -11,8 +11,12 @@
 		<property name="title" type="string"></property>
 		<property name="topicContent" type="string"></property>
 		<property name="ipAddr" type="string"></property>
-		<property name="lastReplyDate" type="calendar"></property>
-		<property name="createDate" type="calendar"></property>
+		<property name="lastReplyDate">
+			<column name="lastReplyDate" sql-type="datetime"></column>
+		</property>
+		<property name="createDate">
+			<column name="createDate" sql-type="datetime"></column>
+		</property>
 	
 		<set name="replySet">
 			<key column="tid"/>

@@ -10,7 +10,9 @@
 		</id>
 		<property name="replyContent" type="string"></property>
 		<property name="ipAddr" type="string"></property>
-		<property name="createDate" type="calendar"></property>
+		<property name="createDate">
+			<column name="createDate" sql-type="datetime"></column>
+		</property>
 		
 		<many-to-one name="topic" class="Topic" column="tid"></many-to-one>
 	</class>

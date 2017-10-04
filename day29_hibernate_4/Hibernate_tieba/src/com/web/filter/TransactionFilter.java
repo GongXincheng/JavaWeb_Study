@@ -23,7 +23,8 @@ public class TransactionFilter implements Filter{
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
 		
-		Session session = HibernateUtil.openSession();
+		//注意：获取当前线程的Session
+		Session session = HibernateUtil.getCurrenSession();
 		Transaction transaction = session.beginTransaction();
 		
 		try {
