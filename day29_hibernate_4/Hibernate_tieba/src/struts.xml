@@ -15,7 +15,8 @@
 				<param name="namespace">/</param>
 			</result>
 			
+			<!-- 跳转到页面 -->
+			<result name="List">/listTopics.jsp</result>
 		</action>
-		
 	</package>
 </struts>

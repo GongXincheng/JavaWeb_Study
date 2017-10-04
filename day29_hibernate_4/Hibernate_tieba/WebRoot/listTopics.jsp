@@ -13,11 +13,12 @@
 	<!-- 简单搜索表单 -->
 	<div style="margin: 15px auto; " >
 		<!-- 搜索表单 -->
-		<form action="" class="simpleSearchForm" onsubmit="alert('暂不支持此功能！');return false;">
+		<s:form action="TopicAction_search" cssClass="simpleSearchForm" theme="simple">
 			<font class="logoLabel">GXC贴吧</font>
+			<%-- <s:textfield name="queryString" cssClass="queryString" ></s:textfield> --%>
 			<input type="text" name="queryString" class="queryString"/>
 			<input type="submit" value="搜 索" />
-		</form>
+		</s:form>
 	</div>
 
 	<!-- 菜单 -->
@@ -36,23 +37,20 @@
 		    </tr>
 
     		<!-- 显示部门列表 -->
-	        <tr class="data">
-	            <td class="num">1</td>
-	            <td class="num">123</td>
-	            <td><a href="showTopic.html">凤姐专区</a></td>
-	            <td class="info">127.0.0.1</td>
-	            <td class="info">1994-10-21 15:16:20</td>
-	        </tr>
-	        <tr class="data">
-	            <td class="num">2</td>
-	            <td class="num">56</td>
-	            <td><a href="showTopic.html">凤姐专区</a></td>
-	            <td class="info">127.0.0.1</td>
-	            <td class="info">1994-10-21 15:16:20</td>
-	        </tr>
-
+    		<s:iterator value="topicList" var="topic" status="status">
+		        <tr class="data">
+		            <td class="num">${status.count }</td>
+		            <td class="num">2</td>
+		            <td>
+		            	<s:a action="showTopic_show" ></s:a>
+		            	<a href="showTopic.jsp">${topic.title }</a>
+		            </td>
+		            <td class="info">${topic.ipAddr }</td>
+		            <td class="info">${topic.lastReplyDate }</td>
+		        </tr>
+			</s:iterator>
 		    <tr>
-		        <td colspan="5" class="num">共有主题数<font color="red">2</font>个</td>
+		        <td colspan="5" class="num">共有主题数<font color="red">${topicList.size() }</font>个</td>
 		    </tr>
    		 </tbody>
 	</table>
