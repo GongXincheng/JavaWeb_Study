@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       					   http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	
+	<bean id="BookServiceId" class="com.b_di.BookServiceImpl">
+		<property name="bookDao" ref="BookDaoId"></property>
+	</bean>
+	<bean id="BookDaoId" class="com.b_di.BookDaoImpl"></bean>
+
+</beans>
