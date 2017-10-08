@@ -6,6 +6,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
+import com.domain.Reply;
 import com.domain.Topic;
 import com.utils.HibernateUtil;
 
@@ -25,28 +26,29 @@ public class TopicDaoImpl implements TopicDao {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Topic> findTtopic(String queryString) {
+	public List<Topic> findTtopic(String key) {
 		Session session = HibernateUtil.getCurrenSession();
 		
-		System.out.println(StringUtils.isBlank(queryString));
-		if(StringUtils.isBlank(queryString)){
-			Query query = session.createQuery("from Topic");
-			List<Topic> list = query.list();
-			return list;
+		Query query = session.createQuery("from Topic where title like :key");
+		if(StringUtils.isBlank(key)){
+			query.setString("key", "%");
+		}else{
+			query.setString("key", "%"+key+"%");
 		}
-		
-		Query query = session.createQuery("select t from Topic t where t.title like '%" + queryString +"%'");
 		List<Topic> list = query.list();
-		
 		return list;
 	}
 
-	/*@Override
-	public int getNumber() {
+	public Topic findTopicById(Integer id) {
 		Session session = HibernateUtil.getCurrenSession();
-		Query query = session.createQuery("select count(*) from Topic");
-		int num = Integer.parseInt(query.uniqueResult().toString());
-		return num;
-	}*/
+		Topic topic = (Topic) session.get(Topic.class, id);
+		return topic;
+	}
+
+	public void saveReply(Topic topic, Reply reply) {
+		Session session = HibernateUtil.getCurrenSession();
+		topic.getReplySet().add(reply);
+		session.save(reply);
+	}
 
 }

@@ -7,6 +7,7 @@ import org.apache.struts2.ServletActionContext;
 
 import com.dao.TopicDao;
 import com.dao.TopicDaoImpl;
+import com.domain.Reply;
 import com.domain.Topic;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -17,7 +18,7 @@ public class TopicAction extends ActionSupport{
 	private Topic topic;
 	private List<Topic> topicList;
 	private String queryString;
-//	private Integer num;
+	private Reply reply;
 	
 	//添加
 	public String add(){
@@ -43,6 +44,23 @@ public class TopicAction extends ActionSupport{
 		return "List";
 	}
 	
+	//回复列表
+	public String show(){
+		topic = topicDao.findTopicById(topic.getTid());
+		return "replyList";
+	}
+	
+	//添加回复
+	public String addReply(){
+		topic = topicDao.findTopicById(topic.getTid());
+		//1.IP
+		reply.setIpAddr(ServletActionContext.getRequest().getRemoteAddr());
+		//2.createDate
+		reply.setCreateDate(new Date());
+		topicDao.saveReply(topic, reply);
+		return "replyList";
+	}
+	
 	
 	
 	public Topic getTopic() {
@@ -65,10 +83,12 @@ public class TopicAction extends ActionSupport{
 	public void setQueryString(String queryString) {
 		this.queryString = queryString;
 	}
-	/*public Integer getNum() {
-		return num;
+
+	public Reply getReply() {
+		return reply;
 	}
-	public void setNum(Integer num) {
-		this.num = num;
-	}*/
+	public void setReply(Reply reply) {
+		this.reply = reply;
+	}
+	
 }

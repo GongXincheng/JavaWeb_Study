@@ -1,100 +1,106 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="/struts-tags" prefix="s" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="css/main.css"> 
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<script type="text/javascript">
+	function check(){
+		
+		var rc = document.getElementById("replyContent").value;
+		if(rc.length==0){
+			alert("请输入回复内容!");
+			return false;
+		}
+		else{
+			document.getElementById("form").submit();
+		}
+	}
+</script>
 </head>
 <body>
 	<!-- 简单搜索表单 -->
 	<div style="margin: 15px auto; " >
 		<!-- 搜索表单 -->
-		<form action="" class="simpleSearchForm" onsubmit="alert('暂不支持此功能！');return false;">
+		<s:form action="TopicAction_search" cssClass="simpleSearchForm" theme="simple">
 			<font class="logoLabel">GXC贴吧</font>
+			<%-- <s:textfield name="queryString" cssClass="queryString" ></s:textfield> --%>
 			<input type="text" name="queryString" class="queryString"/>
 			<input type="submit" value="搜 索" />
-		</form>
+		</s:form>
 	</div>
 	<!-- 菜单 -->
 	<div class="menubar">
-		<a href="listTopics.html">主题列表</a>
+		<s:a action="TopicAction_list">主题列表</s:a>
+		<!-- <a href="listTopics.html"></a> -->
 	</div>
 	
 	<!-- 当前主题贴数 -->
 	<div style="padding: 10px 30px; font-size: 12px; font-family:'宋体'">
-		共有<font color="red">5</font>篇帖子
+		共有<font color="red">${topic.replySet.size() }</font>篇帖子
 	</div>
 	
 	<!-- 显示主题 -->
 	<table class="postList" cellspacing="0">
 	    <tr class="title">
 	        <td width="20" class="num">1</td>
-	        <td>这里是标题</td>
+	        <td>标题：${topic.title}</td>
 	    </tr>
 	    <tr class="content">
 	        <td></td>
-	        <td><pre>这里是内容</pre></td>
+	        <td><pre>内容：${topic.topicContent} </pre></td>
 	    </tr>
 	    <tr class="info">
 	        <td></td>
 	        <td>
-				作者：<font color="blue">只有ip地址</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	            <font color="#999999">发帖时间：1978-05-21 12:23:34</font>
+				作者IP：<font color="blue">${topic.ipAddr}</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	            <font color="#999999">发帖时间：<s:date name="%{topic.createDate}" format="yyyy-MM-dd hh:mm:ss"/> </font>
 	        </td>
 	    </tr>
 	</table>
 	
 	<!-- 显示回复列表 -->
-	<table class="postList" cellspacing="0">
-        <tr class="title">
-            <td width="20" class="num">2</td>
-            <td></td>
-        </tr>
-        <tr class="content">
-            <td></td>
-            <td><pre>灌水</pre></td>
-        </tr>
-        <tr class="info">
-            <td></td>
-            <td>
-				作者：<font color="blue">12345</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <font color="#999999">回帖时间：1978-05-21 12:23:34</font>
-            </td>
-        </tr>
-    </table>
-	<table class="postList" cellspacing="0">
-        <tr class="title">
-            <td width="20" class="num">3</td>
-            <td></td>
-        </tr>
-        <tr class="content">
-            <td></td>
-            <td><pre>灌水</pre></td>
-        </tr>
-        <tr class="info">
-            <td></td>
-            <td>
-				作者：<font color="blue">12345</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <font color="#999999">回帖时间：1978-05-21 12:23:34</font>
-            </td>
-        </tr>
-    </table>
+	<s:iterator value="%{topic.replySet}" var="r" status="status">
+		<table class="postList" cellspacing="0">
+	        <tr class="title">
+	            <td width="20" class="num">${status.count+1 }</td>
+	            <td></td>
+	        </tr>
+	        <tr class="content">
+	            <td></td>
+	            <td><pre>${r.replyContent }</pre></td>
+	        </tr>
+	        <tr class="info">
+	            <td></td>
+	            <td>
+					作者：<font color="blue">${r.ipAddr }</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	                <font color="#999999">回帖时间： <s:date name="#r.createDate" format="yyyy-MM-dd HH:mm:ss"/></font>
+	            </td>
+	        </tr>
+	    </table>
+	    </s:iterator>
     
     <div style="margin-bottom: 20px"></div>
 	<!-- 发表回复表单 -->
-	<form action="" class="addNewTopicForm">
+	<s:form action="TopicAction_addReply" cssClass="addNewTopicForm" id="form">
 		<table class="publishArticleForm">
 	        <tr>
 	            <td class="label">内　容:</td>
-	            <td><textarea name="content" class="content"></textarea></td>
+	            <td>
+	            	<textarea id="replyContent" name="reply.replyContent" class="content"></textarea>
+	            </td>
 	        </tr>
 	        <tr>
 	            <td></td>
-	            <td><input type="submit" value="回　贴"/></td>
+	            <td><input type="button" value="回　贴" onclick="check()" /></td>
 	        </tr>
 	    </table>
-	</form>
+	    <s:hidden name="topic.tid" value="%{topic.tid}"></s:hidden>
+	    <s:token></s:token>
+	</s:form>
+	<s:debug/>
 </body>
 </html>

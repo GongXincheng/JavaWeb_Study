@@ -5,9 +5,9 @@
 
 <struts>
 	<constant name="struts.devMode" value="true"/>
+	<constant name="struts.ui.theme" value="simple"/>
 	
 	<package name="tieba" extends="struts-default" namespace="/">
-	
 		<action name="TopicAction_*" class="com.web.action.TopicAction" method="{1}">
 			<!-- 查询List -->
 			<result name="toList" type="redirectAction">
@@ -15,8 +15,11 @@
 				<param name="namespace">/</param>
 			</result>
 			
-			<!-- 跳转到页面 -->
+			<!-- 跳转到帖子列表 -->
 			<result name="List">/listTopics.jsp</result>
+			
+			<!-- 跳转帖子内 -->
+			<result name="replyList">/showTopic.jsp</result>
 		</action>
 	</package>
 </struts>

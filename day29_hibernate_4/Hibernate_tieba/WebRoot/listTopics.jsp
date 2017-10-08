@@ -36,17 +36,20 @@
 		        <td width="145">最后回复时间</td>
 		    </tr>
 
-    		<!-- 显示部门列表 -->
+    		<!-- 显示帖子列表 -->
     		<s:iterator value="topicList" var="topic" status="status">
-		        <tr class="data">
-		            <td class="num">${status.count }</td>
-		            <td class="num">2</td>
+		        <tr class="data" style="background:${status.isEven() ? '#eee': 'white'}">
+		            <td class="num">${status.count}</td>
+		            <td class="num">${topic.replySet.size()}</td>
 		            <td>
-		            	<s:a action="showTopic_show" ></s:a>
-		            	<a href="showTopic.jsp">${topic.title }</a>
+		            	<s:a action="TopicAction_show" >
+		            		<s:param name="topic.tid" value="#topic.tid"></s:param>${topic.title}
+		            	</s:a>
 		            </td>
 		            <td class="info">${topic.ipAddr }</td>
-		            <td class="info">${topic.lastReplyDate }</td>
+		            <td class="info">
+						<s:date name="#topic.lastReplyDate" format="yyyy-MM-dd HH:mm:ss"/>
+					</td>
 		        </tr>
 			</s:iterator>
 		    <tr>
@@ -69,7 +72,8 @@
 	        <tr>
 	            <td>内　容:</td>
 	            <td>
-	           		 <s:textarea name="topic.topicContent" cssClass="content"/>
+	            	<textarea name="topic.topicContent" class="content"></textarea>
+	           		<%-- <s:textarea name="topic.topicContent" cssClass="content"/> --%>
 	            </td>
 	        </tr>
 	        <tr>
@@ -80,6 +84,6 @@
 	        </tr>
 	    </table>
     </s:form>
-
+	<s:debug/>
 </body>
 </html>

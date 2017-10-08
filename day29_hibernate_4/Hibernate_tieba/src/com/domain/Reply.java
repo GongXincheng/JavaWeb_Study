@@ -48,4 +48,10 @@ public class Reply {
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
 	}
+
+	@Override
+	public String toString() {
+		return "Reply [rid=" + rid + ", topic=" + topic + "]";
+	}
+	
 }
