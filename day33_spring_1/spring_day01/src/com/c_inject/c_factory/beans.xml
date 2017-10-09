@@ -3,10 +3,10 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans 
        					   http://www.springframework.org/schema/beans/spring-beans.xsd">
-
 	
-	<bean id="BookServiceId" class="com.b_di.BookServiceImpl">
-		<property name="bookDao" ref="BookDaoId"></property>
-	</bean>
-	<bean id="BookDaoId" class="com.b_di.BookDaoImpl"></bean>
+	<!-- 创建工厂实例 -->
+	<bean id="myBeanFactory" class="com.c_inject.c_factory.MyBeanFactory"></bean>
+	<!-- 获得UserService实例 -->
+	<bean id="userServiceId" factory-bean="myBeanFactory" factory-method="createUserService"></bean>
+	
 </beans>
