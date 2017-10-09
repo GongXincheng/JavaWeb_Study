@@ -16,3 +16,6 @@
 <br/>
 <h2>Hibernate version：</h2>
 <h4>3.6.10</h4>
+<br/>
+<h2>Spring version：</h2>
+<h4>3.2.0</h4>
