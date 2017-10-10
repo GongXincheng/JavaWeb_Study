@@ -4,6 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans 
        					   http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+	<bean class="com.e_lifecycle.MyBeanPostProcessor"></bean>
 	<bean id="userServiceId" class="com.e_lifecycle.UserServiceImpl" 
-			init-method="myInit" destroy-method="myDestroy" ></bean>
+			init-method="myInit" destroy-method="myDestroy" scope="singleton"></bean>
 </beans>
