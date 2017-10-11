@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       					   http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="personId" class="com.f_xml.b_setter.Person">
+		<property name="pname" value="GXC"></property>
+		<property name="age" value="21"></property>
+		<property name="homeAddr" ref="homeAddrId"></property>
+		<property name="companyAddr" ref="CompanyAddrId"></property>
+	</bean>
+	
+	<bean id="homeAddrId" class="com.f_xml.b_setter.Address">
+		<property name="addr" value="滕州"></property>
+		<property name="tel" value="13563274342"></property>
+	</bean>
+	<bean id="CompanyAddrId" class="com.f_xml.b_setter.Address">
+		<property name="addr" value="潍坊"></property>
+		<property name="tel" value="17863655266"></property>
+	</bean>
+</beans>
