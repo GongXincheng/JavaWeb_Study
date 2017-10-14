@@ -14,7 +14,7 @@ public class MyBeanFactory {
 		//2.切面类
 		final MyAspect myAspect = new MyAspect();
 		
-		/* 3.代理类：将目标类(切入点PoinCut)和切面类(通知advice)结合 --> 切面
+		 /*3.代理类：将目标类(切入点PoinCut)和切面类(通知advice)结合 --> 切面
 		 * 
 		 * 	  Proxy.newProxyInstance
 		 * 		参数1：ClassLoader loader (类加载器:动态代理类运行时创建,任何类都需要类加载器将其加载到内存)
@@ -32,8 +32,8 @@ public class MyBeanFactory {
 		 * 								1.获取执行的方法名：method.getName();
 		 * 								2.执行方法：method.invoke(对象,实际参数);
 		 * 					参数3-3：Object[] args ：方法实际参数
-		 * 
-		 */
+		 * */
+		 
 		
 		UserService proxyService = (UserService)Proxy.newProxyInstance(
 				MyBeanFactory.class.getClassLoader(), 
@@ -43,7 +43,6 @@ public class MyBeanFactory {
 					public Object invoke(Object proxy, Method method, Object[] args)
 							throws Throwable {
 						//将目标类和切面类结合
-						
 						//前执行
 						myAspect.before();
 						
@@ -56,6 +55,29 @@ public class MyBeanFactory {
 						return object;
 					}
 				});
+		
+		 /*
+		//1.目标类
+		final UserService userService = new UserServiceImpl();
+		//2.切面类
+		final MyAspect myAspect = new MyAspect();
+		//3.代理类
+		UserService proxyService = (UserService) Proxy.newProxyInstance(
+				MyBeanFactory.class.getClassLoader(), 
+				userService.getClass().getInterfaces(), 
+				new InvocationHandler() {
+					
+					@Override
+					public Object invoke(Object proxy, Method method, Object[] args)
+							throws Throwable {
+						myAspect.before();
+						Object object = method.invoke(userService, args);
+						myAspect.after();
+						return object;
+					}
+				});
+		
+		*/
 		
 		return proxyService;
 	}
