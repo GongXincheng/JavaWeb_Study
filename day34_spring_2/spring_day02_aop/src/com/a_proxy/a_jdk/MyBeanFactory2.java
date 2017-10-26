@@ -22,6 +22,7 @@ public class MyBeanFactory2 {
 					public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 						
 						myAspect.before();
+						//执行目标类的方法
 						Object object = method.invoke(userService, args);
 						myAspect.after();
 						

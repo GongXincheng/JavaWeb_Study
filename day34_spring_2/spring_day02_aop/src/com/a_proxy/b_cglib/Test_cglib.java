@@ -12,4 +12,12 @@ public class Test_cglib {
 		userService.deleteUser();
 	}
 	
+	@Test
+	public void demo02(){
+		UserServiceImpl userService = MyBeanFactory2.getUserService();
+		userService.addUser();
+		userService.updateUser();
+		userService.deleteUser();
+	}
+	
 }
