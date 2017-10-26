@@ -12,4 +12,12 @@ public class TestJDK {
 		userService.deleteUser();
 	}
 	
+	
+	@Test
+	public void demo02(){
+		UserService userService = MyBeanFactory2.getUserService();
+		userService.addUser();
+		userService.updateUser();
+		userService.deleteUser();
+	}
 }

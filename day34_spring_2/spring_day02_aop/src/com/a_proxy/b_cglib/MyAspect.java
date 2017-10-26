@@ -1,6 +1,6 @@
 package com.a_proxy.b_cglib;
 
-//切面类
+//切面类(通知)
 public class MyAspect {
 	
 	public void before(){
