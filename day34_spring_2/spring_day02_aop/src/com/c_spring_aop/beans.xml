@@ -12,16 +12,16 @@
       <!-- 2.创建切面类 -->
       <bean id="myAspectId" class="com.c_spring_aop.MyAspect"></bean>
       <!--3.AOP编程 -->
-      	<!-- 
-      		3.1：导入命名空间
-      		3.2: 使用<aop:config>进行配置
-      			<aop:pointcut> 切入点，从目标对象获得具体方法
-      			<aop:advisor> 特殊的切面，只有一个通知和一个切入点
-      				advice-ref：通知引用
-      				pointcut-ref：切入点引用
-      		3.3：切入点表达式
-      			execution(* com.c_spring_aop.*.*(..))
-      	 -->
+		  <!-- 
+		  	3.1：导入命名空间
+		  	3.2: 使用<aop:config>进行配置
+		  		<aop:pointcut> 切入点，从目标对象获得具体方法
+		  		<aop:advisor> 特殊的切面，只有一个通知和一个切入点
+		  			advice-ref：通知引用
+		  			pointcut-ref：切入点引用
+		  	3.3：切入点表达式
+		  		execution(* com.c_spring_aop.*.*(..))
+		  -->
       <aop:config proxy-target-class="true"> <!-- 声明式使用cglib代理 -->
       		<aop:pointcut expression="execution(* com.c_spring_aop.*.*(..))" id="myPointCut"/>
       		<aop:advisor advice-ref="myAspectId" pointcut-ref="myPointCut"/>

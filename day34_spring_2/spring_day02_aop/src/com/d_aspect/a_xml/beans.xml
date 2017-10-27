@@ -31,8 +31,8 @@
 				通知方法格式：public void myBefore(JoinPoint joinPoint){
 					参数1：org.aspectj.lang.JoinPoint  用于描述连接点（目标方法），获得目标方法名等
 				例如：
-					<aop:before method="myBefore" pointcut-ref="myPointCut"/>
 			-->
+					<aop:before method="myBefore" pointcut-ref="myPointCut"/>
        		
        			
        		<!-- 3.2后置通知  ,目标方法后执行，获得返回值
@@ -42,8 +42,8 @@
 					参数1：连接点描述
 					参数2：类型Object，参数名 returning="ret" 配置的
 				例如：
-					<aop:after-returning method="myAfterReturning" pointcut-ref="myPointCut" returning="ret" />
 			-->
+					<aop:after-returning method="myAfterReturning" pointcut-ref="myPointCut" returning="ret" />
 
        			
        		<!-- 3.3 环绕通知 
@@ -55,8 +55,8 @@
 					抛出异常
 				执行目标方法：Object obj = joinPoint.proceed();
 				例如：
-					<aop:around method="myAround" pointcut-ref="myPointCut"/>
 			-->
+					<aop:around method="myAround" pointcut-ref="myPointCut"/>
        			
        			
        		<!-- 3.4 抛出异常
@@ -66,8 +66,8 @@
 					参数1：连接点描述对象
 					参数2：获得异常信息，类型Throwable ，参数名由throwing="e" 配置
 				例如：
-					<aop:after-throwing method="myAfterThrowing" pointcut-ref="myPointCut" throwing="e"/>
 			-->
+					<aop:after-throwing method="myAfterThrowing" pointcut-ref="myPointCut" throwing="e"/>
 
 			<!-- 3.5 最终通知 -->			
 				<aop:after method="myAfter" pointcut-ref="myPointCut"/>
