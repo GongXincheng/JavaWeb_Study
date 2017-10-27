@@ -11,7 +11,6 @@
       <bean id="userServiceId" class="com.c_spring_aop.UserServiceImpl"></bean> 					   
       <!-- 2.创建切面类 -->
       <bean id="myAspectId" class="com.c_spring_aop.MyAspect"></bean>
-      
       <!--3.AOP编程 -->
       	<!-- 
       		3.1：导入命名空间
@@ -27,4 +26,5 @@
       		<aop:pointcut expression="execution(* com.c_spring_aop.*.*(..))" id="myPointCut"/>
       		<aop:advisor advice-ref="myAspectId" pointcut-ref="myPointCut"/>
       </aop:config>
+      
 </beans>
