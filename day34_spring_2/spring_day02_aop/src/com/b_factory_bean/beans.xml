@@ -7,9 +7,7 @@
       <bean id="userServiceId" class="com.b_factory_bean.UserServiceImpl"></bean> 					   
       <!-- 2.创建切面类 -->
       <bean id="myAspectId" class="com.b_factory_bean.MyAspect"></bean>
-      
       <!-- 3.创建代理类 
-      
       		(1) 使用工厂bean(FactoryBean),底层调用getObject() 返回特殊bean
       		(2) ProxyFactoryBean 用于创建代理的工厂bean,生成代理对象
       				interfaces:确定接口们
@@ -20,7 +18,7 @@
       				optimize: 强制使用cglib, 参数：boolean类型
       -->
       <bean id="proxyServiceId" class="org.springframework.aop.framework.ProxyFactoryBean">
-      		<!-- 确定接口 -->
+      		<!-- 确定接口s -->
 	      	<property name="interfaces">
 	      		<array>
 	      			<value>com.b_factory_bean.UserService</value>
@@ -30,8 +28,8 @@
       		<property name="target" ref="userServiceId"></property>
       		<!-- 切面类 -->
       		<property name="interceptorNames" value="myAspectId"></property>
-      		<!-- 强制使用cglib -->
-      		<property name="optimize" value=""></property>
+      		<!-- 强制使用cglib代理 -->
+      		<property name="optimize" value="true"></property>
       </bean>
       
 </beans>
