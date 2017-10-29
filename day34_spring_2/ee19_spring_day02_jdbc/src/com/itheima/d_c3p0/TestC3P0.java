@@ -1,11 +1,8 @@
 package com.itheima.d_c3p0;
 
 import java.util.List;
-
 import org.junit.Test;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 import com.itheima.a_domain.User;
 
 public class TestC3P0 {
@@ -14,7 +11,7 @@ public class TestC3P0 {
 	public void demo01(){
 		
 		String xmlPath = "com/itheima/d_c3p0/beans.xml";
-		ApplicationContext applicationContext = new ClassPathXmlApplicationContext(xmlPath);
+		ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext(xmlPath);
 		
 		//获得目标类
 		UserDao userDao = (UserDao) applicationContext.getBean("userDaoId");
@@ -22,6 +19,7 @@ public class TestC3P0 {
 		for (User user : allUser) {
 			System.out.println(user);
 		}
+		applicationContext.close();
 	}
 
 }

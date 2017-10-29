@@ -1,12 +1,8 @@
 package com.itheima.f_properties;
 
 import java.util.List;
-
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.simple.ParameterizedBeanPropertyRowMapper;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
-
 import com.itheima.a_domain.User;
 
 public class UserDao extends JdbcDaoSupport{
