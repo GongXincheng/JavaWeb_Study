@@ -14,7 +14,7 @@ public class testApp {
 		String xmlPath = "applicationContext.xml";
 		ApplicationContext applicationContext = new ClassPathXmlApplicationContext(xmlPath);
 		
-		AccountService accountService = (AccountService) applicationContext.getBean("accountService");
+		AccountService accountService = (AccountService) applicationContext.getBean("proxyAccountService");
 		accountService.transfer("jack", "rose", 1000);
 		
 	}

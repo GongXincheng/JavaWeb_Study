@@ -27,17 +27,36 @@
 	<!-- 3.service -->
      <bean id="accountService" class="com.service.AccountServiceImpl">
      	<property name="accountDao" ref="accountDao"></property>
-     	<property name="transactionTemplate" ref="transactionTemplate"></property>
      </bean>
      
-     <!-- 4.创建模版 -->	
-     <bean id="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate">
-     	<!-- 模版需要配置事务管理器 -->
-     	<property name="transactionManager" ref="txManager"></property>
-     </bean>		
-     
-     <!--5.事务管理器,管理器需要事务，而事务从Connection获得，连接从DataSource中获得 -->
-     <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-     	<property name="dataSource" ref="dataSource"></property>
-     </bean>		   
+   <!-- 4. service 代理对象 
+   			4.1: proxyInterfaces 接口s
+   			4.2: target	 目标类
+   			4.3: transactionManager  事务管理器
+   			4.4: transactionAttributes 事务属性(事务详情)
+   					prop.key : 确定哪些方法使用当前事务配置
+   					prop.text:用于配置事务详情
+						格式：PROPAGATION,ISOLATION,readOnly,-Exception,+Exception
+							传播行为		隔离级别	是否只读		异常回滚		异常提交
+						例如：
+							<prop key="transfer">PROPAGATION_REQUIRED,ISOLATION_DEFAULT</prop> 默认传播行为，和隔离级别
+							<prop key="transfer">PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly</prop> 只读
+							<prop key="transfer">PROPAGATION_REQUIRED,ISOLATION_DEFAULT,+java.lang.ArithmeticException</prop>  有异常扔提交
+   -->
+   <bean id="proxyAccountService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+   		<property name="proxyInterfaces" value="com.service.AccountService" />
+   		<property name="target" ref="accountService"></property>
+   		<property name="transactionManager" ref="txManager"></property>
+   		<property name="transactionAttributes">
+   			<props>
+   				<prop key="transfer">PROPAGATION_REQUIRED,ISOLATION_DEFAULT</prop>
+   			</props>
+   		</property>
+   </bean>
+   
+   <!-- 5.事务管理器 -->
+   <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+   	<property name="dataSource" ref="dataSource"></property>
+   </bean>
+   
 </beans>
