@@ -1,7 +1,12 @@
 package com.service;
 
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.dao.AccountDao;
 
+@Transactional(propagation=Propagation.REQUIRED, isolation=Isolation.DEFAULT)
 public class AccountServiceImpl implements AccountService {
 
 	//注入 AccountDao
@@ -13,14 +18,13 @@ public class AccountServiceImpl implements AccountService {
 		this.accountDao = accountDao;
 	}
 
+	@SuppressWarnings("unused")
 	@Override
 	public void transfer(String outer, String inner, Integer money) {
 		
-		accountDao.in(inner, money);
-		
-		int i = 1/0;
-		
 		accountDao.out(outer, money);
+		int i = 1/0;
+		accountDao.in(inner, money);
 		
 	}
 
