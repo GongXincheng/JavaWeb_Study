@@ -26,7 +26,7 @@ public class AccountServiceImpl implements AccountService {
 			@Override
 			protected void doInTransactionWithoutResult(TransactionStatus arg0) {
 				accountDao.in(inner, money);
-				int i = 1/0;
+				//int i = 1/0;
 				accountDao.out(outer, money);
 			}
 		});
