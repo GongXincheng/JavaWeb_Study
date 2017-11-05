@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<!-- 员工配置 -->
+	<package name="sta" extends="common" namespace="/">
+		<action name="staffAction_*" class="com.gxc.staff.web.action.StaffAction" method="{1}">
+			<!-- 登录成功 -->
+			<result type="redirectAction">staffAction_home</result>
+			
+			<!-- 登录失败，重新登录  struts.xml 已经配置了
+			<result name="login">/WEB-INF/pages/login.jsp</result> -->
+			
+			<!-- 重定向到主页 -->
+			<result name="home">/WEB-INF/pages/frame.jsp</result>
+		</action>
+	</package>
+	
+</struts>

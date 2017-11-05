@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- 常量 -->
+	<constant name="struts.devMode" value="true"/>
+	<constant name="struts.ui.theme" value="simple"></constant>
+	
+	<!-- 公共包 -->
+	<package name="common" extends="struts-default" namespace="/">
+	
+		<!-- 拦截器的配置 -->
+		<interceptors>
+			<!-- 1、声明(注册) -->
+			<interceptor name="loginInterceptor" class="com.gxc.web.interceptor.LoginInterceptor"></interceptor>
+			<!-- 2、自定义栈 -->
+			<interceptor-stack name="loginStack">
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="loginInterceptor">
+					<!-- 自定义拦截器不需要拦截 login  
+						excludeMethods: 配置不包含的方法，多个方法使用，分隔
+					-->
+					<param name="excludeMethods">login</param>
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<!-- 3、声明默认拦截器 -->
+		<default-interceptor-ref name="loginStack"></default-interceptor-ref>
+	
+	
+		<!-- 全局结果视图 -->
+		<global-results>
+			<result name="login">/WEB-INF/pages/login.jsp</result>
+		</global-results>
+	
+		<!--  配置公共的jsp访问的action
+		
+			版本1：通过Action实现
+				<action name="uiAction" class="com.gxc.web.action.UIAction">
+					<result name="success">/WEB-INF/pages/frame/top.jsp</result>
+				</action> 
+			
+			版本2：通过ActionSupport实现
+				<action name="uiAction" class="com.opensymphony.xwork2.ActionSupport">
+					<result name="success">/WEB-INF/pages/frame/top.jsp</result>
+				</action> 
+				可以去掉class
+				<action name="uiAction">
+					<result name="success">/WEB-INF/pages/frame/top.jsp</result>
+				</action>
+			
+			版本3：通配符  第一个*文件夹,文件名称
+				<action name="uiAction_*_*">
+					<result>/WEB-INF/pages/{1}/{2}.jsp</result>
+				</action>
+		-->
+		<action name="uiAction_*_*">
+			<result>/WEB-INF/pages/{1}/{2}.jsp</result>
+		</action>
+	</package>
+	
+	
+	<!-- 加载其他配置文件 -->
+	<include file="struts/struts-staff.xml"></include>
+</struts>

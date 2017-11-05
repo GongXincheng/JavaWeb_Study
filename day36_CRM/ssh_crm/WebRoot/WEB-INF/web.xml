@@ -5,14 +5,14 @@
   <!-- 1.确定Spring XML文件位置 -->
   <context-param>
   	<param-name>contextConfigLocation</param-name>
-  	<param-value>classpath:applicationContext.xml</param-value>
+  	<param-value>classpath:spring/applicationContext.xml</param-value>
   </context-param>
   
   <!-- 2. 配置 Spring 的监听器 -->
   <listener>
   	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
-  
+   
   <!-- struts2的核心过滤器 -->
   <filter>
   	<filter-name>struts2</filter-name>

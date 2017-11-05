@@ -3,7 +3,7 @@ package com.gxc.coursetype.domain;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.gxc.classes.domain.CrmClass;
+import com.gxc.classes.domain.CrmClasses;
 
 public class CrmCourseType {
 
@@ -14,7 +14,7 @@ public class CrmCourseType {
 	private String remark;	
 	
 	//一个课程类型对应多个班级(一对多)
-	private Set<CrmClass> classSet = new HashSet<CrmClass>();
+	private Set<CrmClasses> classSet = new HashSet<CrmClasses>();
 
 	
 	public String getCourseTypeId() {
@@ -57,11 +57,11 @@ public class CrmCourseType {
 		this.remark = remark;
 	}
 
-	public Set<CrmClass> getClassSet() {
+	public Set<CrmClasses> getClassSet() {
 		return classSet;
 	}
 
-	public void setClassSet(Set<CrmClass> classSet) {
+	public void setClassSet(Set<CrmClasses> classSet) {
 		this.classSet = classSet;
 	}
 	

@@ -4,17 +4,20 @@ import java.util.Date;
 
 import com.gxc.coursetype.domain.CrmCourseType;
 
-public class CrmClass {
+public class CrmClasses {
 	
 	private String classId;
+	
 	private String name;
 	private Date beginTime;
 	private Date endTime;
 	private String status;	//状态
 	private Integer totalCount;	//学生总数
+	
 	private Integer upgradeCount;	//升学数
 	private Integer changeCount;	//转班数
 	private Integer runoffCount;	//退费数
+	
 	private String remark;
 	private Date uploadTime;	//上传时间
 	private String uploadPath;	//上传路径

@@ -17,7 +17,7 @@
 		<!--  一个课程类型对应多个班级(一对多) -->
 		<set name="classSet">
 			<key column="courseTypeId"></key>
-			<one-to-many class="com.gxc.classes.domain.CrmClass"/>
+			<one-to-many class="com.gxc.classes.domain.CrmClasses"/>
 		</set>
 	</class>
 </hibernate-mapping>
