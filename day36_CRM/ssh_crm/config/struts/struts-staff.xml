@@ -19,6 +19,9 @@
 			
 			<!-- 查询所有员工 -->
 			<result name="findAll">WEB-INF/pages/staff/listStaff.jsp</result>
+		
+			<!-- 根据Id查询员工（编辑前） -->
+			<result name="editUI">WEB-INF/pages/staff/editStaff.jsp</result>
 		</action>
 	</package>
 	

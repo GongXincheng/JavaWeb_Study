@@ -26,9 +26,9 @@
 				</interceptor-ref>
 			</interceptor-stack>
 		</interceptors>
-		<!-- 3、声明默认拦截器 -->
+		<!-- 3、声明默认拦截器
 		<default-interceptor-ref name="loginStack"></default-interceptor-ref>
-	
+		 -->
 	
 		<!-- 全局结果视图 -->
 		<global-results>

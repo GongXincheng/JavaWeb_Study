@@ -22,10 +22,15 @@ public class StaffServiceImpl implements StaffService {
 		return staffDao.find(staff.getLoginName(), loginPwd);
 	}
 
-	@Override
+	//查询全部
 	public List<CrmStaff> findAll() {
 		List<CrmStaff> list = staffDao.findAll();
 		return list;
+	}
+
+	//根据Id
+	public CrmStaff findById(String staffId) {
+		return staffDao.findById(staffId);
 	}
 	
 }

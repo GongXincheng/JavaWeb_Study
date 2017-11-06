@@ -11,7 +11,7 @@
 
 <body >
  <table border="0" cellspacing="0" cellpadding="0" width="100%">
-  <tr>
+  <tr> 
     <td class="topg"></td>
   </tr>
 </table>
@@ -92,7 +92,11 @@
 	    <td align="center"><s:property value="post.department.depName" /></td>
 	    <td align="center"><s:property value="post.postName" /></td>
 	  	<td width="7%" align="center">
-	  		<a href="${pageContext.request.contextPath}/pages/staff/editStaff.jsp"><img src="${pageContext.request.contextPath}/images/button/modify.gif" class="img" /></a>	
+	  		<!-- 编辑前的查询操作 -->
+	  		<s:a action="staffAction_preEdit" namespace="/">
+	  			<s:param name="staffId" value="staffId"></s:param>
+	  			<img src="${pageContext.request.contextPath}/images/button/modify.gif" class="img" />
+	  		</s:a>
 	  	</td>
 	  </tr>
     </s:iterator>

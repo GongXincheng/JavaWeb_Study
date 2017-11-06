@@ -2,6 +2,8 @@ package com.gxc.staff.web.action;
 
 import java.util.List;
 
+import com.gxc.department.domain.CrmDepartment;
+import com.gxc.department.service.DepartmentService;
 import com.gxc.staff.domain.CrmStaff;
 import com.gxc.staff.service.StaffService;
 import com.opensymphony.xwork2.ActionContext;
@@ -17,10 +19,15 @@ public class StaffAction extends ActionSupport implements ModelDriven<CrmStaff> 
 		return staff;
 	}
 	
-	//Service( Spring自动注入 )
+	//员工Service( Spring自动注入 )
 	private StaffService staffService;
 	public void setStaffService(StaffService staffService) {
 		this.staffService = staffService;
+	}
+	//部门Service( Spring自动注入 )
+	private DepartmentService departmentService;
+	public void setDepartmentService(DepartmentService departmentService) {
+		this.departmentService = departmentService;
 	}
 	
 	///////////////////////////////////////////
@@ -51,6 +58,10 @@ public class StaffAction extends ActionSupport implements ModelDriven<CrmStaff> 
 		return "home";
 	}
 	
+	/**
+	 * 查询所有
+	 * @return
+	 */
 	public String findAll(){
 		//1.查询所有
 		List<CrmStaff> allStaff = staffService.findAll();
@@ -66,5 +77,19 @@ public class StaffAction extends ActionSupport implements ModelDriven<CrmStaff> 
 		ActionContext.getContext().put("allStaff",allStaff);
 		
 		return "findAll";
+	}
+	
+	public String preEdit(){
+		//1、通过id查询员工 
+		CrmStaff findStaff = this.staffService.findById(staff.getStaffId());
+		//使用压栈！使用方式2
+		ActionContext.getContext().getValueStack().push(findStaff);
+		
+		//2、查询所有的部门
+		List<CrmDepartment> allDepartment = departmentService.findAll();
+		//JSP通过"key"获得
+		ActionContext.getContext().getValueStack().set("allDepartment", allDepartment);
+		
+		return "editUI";
 	}
 }

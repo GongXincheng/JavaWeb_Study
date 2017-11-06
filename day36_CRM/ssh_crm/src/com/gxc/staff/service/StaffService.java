@@ -13,5 +13,16 @@ public interface StaffService {
 	 */
 	public CrmStaff login(CrmStaff staff);
 	
+	/**
+	 * 查询全部
+	 * @return
+	 */
 	public List<CrmStaff> findAll();
+
+	/**
+	 * 根据Id查询
+	 * @param staffId
+	 * @return
+	 */
+	public CrmStaff findById(String staffId);
 }
