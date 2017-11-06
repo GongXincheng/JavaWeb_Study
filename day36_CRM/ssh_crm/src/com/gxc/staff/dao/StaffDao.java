@@ -1,5 +1,7 @@
 package com.gxc.staff.dao;
 
+import java.util.List;
+
 import com.gxc.staff.domain.CrmStaff;
 
 public interface StaffDao {
@@ -12,4 +14,9 @@ public interface StaffDao {
 	 */
 	public CrmStaff find(String loginName, String loginPwd);
 	
+	/**
+	 * 查询所有
+	 * @return
+	 */
+	public List<CrmStaff> findAll();
 }

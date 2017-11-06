@@ -1,5 +1,7 @@
 package com.gxc.staff.service;
 
+import java.util.List;
+
 import com.gxc.staff.domain.CrmStaff;
 
 public interface StaffService {
@@ -11,4 +13,5 @@ public interface StaffService {
 	 */
 	public CrmStaff login(CrmStaff staff);
 	
+	public List<CrmStaff> findAll();
 }

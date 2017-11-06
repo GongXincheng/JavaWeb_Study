@@ -1,5 +1,7 @@
 package com.gxc.staff.web.action;
 
+import java.util.List;
+
 import com.gxc.staff.domain.CrmStaff;
 import com.gxc.staff.service.StaffService;
 import com.opensymphony.xwork2.ActionContext;
@@ -47,5 +49,22 @@ public class StaffAction extends ActionSupport implements ModelDriven<CrmStaff> 
 	//为了显示JSP页面(首页)
 	public String home(){
 		return "home";
+	}
+	
+	public String findAll(){
+		//1.查询所有
+		List<CrmStaff> allStaff = staffService.findAll();
+		//2. 将结果放到值栈，方便jsp获取
+		//方式一：Context(Map)中：#key的方式获取：
+		//		ActionContext.getContext().put(key, value); 
+		//方式二：放root(值栈中)中：push(obj); jsp获取"属性名 或 key",一般数据为javaBean或Map时使用，
+		//		ActionContext.getContext().getValueStack().push(allStaff);
+		//方式三：放root(值栈中)中：set(key, value); 一般数据为集合的时候 ，js获取：key
+		//		ActionContext.getContext().getValueStack().set("", allStaff);
+		
+		//使用方式一：
+		ActionContext.getContext().put("allStaff",allStaff);
+		
+		return "findAll";
 	}
 }

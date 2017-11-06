@@ -16,6 +16,9 @@
 			
 			<!-- 重定向到主页 -->
 			<result name="home">/WEB-INF/pages/frame.jsp</result>
+			
+			<!-- 查询所有员工 -->
+			<result name="findAll">WEB-INF/pages/staff/listStaff.jsp</result>
 		</action>
 	</package>
 	
