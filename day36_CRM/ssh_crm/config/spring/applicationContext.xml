@@ -52,6 +52,7 @@
 			<tx:method name="delete*"/>
 			<tx:method name="find*" read-only="true"/>
 			<tx:method name="login" read-only="true"/>
+			<tx:method name="saveOrUpdate"/>
 		</tx:attributes>
 	</tx:advice>
 	
@@ -66,4 +67,6 @@
 	<!-- 4.1：员工 -->
 	<import resource="applicationContext-staff.xml"/>
 	<import resource="applicationContext-department.xml"/>
+	<import resource="applicationContext-post.xml"/>
+	<import resource="applicationContext-coursetype.xml"/>
 </beans>

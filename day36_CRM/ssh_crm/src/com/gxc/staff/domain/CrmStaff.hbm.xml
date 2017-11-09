@@ -10,6 +10,7 @@
 		</id>
 		
 		<property name="loginName"></property>
+<!-- 	<property name="loginPwd" update="false"></property> -->
 		<property name="loginPwd"></property>
 		<property name="staffName"></property>
 		<property name="gender"></property>

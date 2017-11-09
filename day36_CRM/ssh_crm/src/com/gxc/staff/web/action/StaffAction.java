@@ -1,7 +1,6 @@
 package com.gxc.staff.web.action;
 
 import java.util.List;
-
 import com.gxc.department.domain.CrmDepartment;
 import com.gxc.department.service.DepartmentService;
 import com.gxc.staff.domain.CrmStaff;
@@ -15,6 +14,7 @@ public class StaffAction extends ActionSupport implements ModelDriven<CrmStaff> 
 	
 	//封装数据
 	private CrmStaff staff = new CrmStaff();
+	@Override
 	public CrmStaff getModel() {
 		return staff;
 	}
@@ -39,6 +39,7 @@ public class StaffAction extends ActionSupport implements ModelDriven<CrmStaff> 
 	public String login(){
 		//1.查询员工
 		CrmStaff findStaff = staffService.login(staff);
+		
 		//2.是否登录成功
 		if(findStaff!=null){
 			//保存到session
@@ -79,6 +80,10 @@ public class StaffAction extends ActionSupport implements ModelDriven<CrmStaff> 
 		return "findAll";
 	}
 	
+	/**
+	 * 编辑前UI显示
+	 * @return
+	 */
 	public String preEdit(){
 		//1、通过id查询员工 
 		CrmStaff findStaff = this.staffService.findById(staff.getStaffId());
@@ -91,5 +96,14 @@ public class StaffAction extends ActionSupport implements ModelDriven<CrmStaff> 
 		ActionContext.getContext().getValueStack().set("allDepartment", allDepartment);
 		
 		return "editUI";
+	}
+	
+	/**
+	 * 更新操作
+	 * @return
+	 */
+	public String edit(){
+		this.staffService.updateStaff(staff);
+		return "edit";
 	}
 }

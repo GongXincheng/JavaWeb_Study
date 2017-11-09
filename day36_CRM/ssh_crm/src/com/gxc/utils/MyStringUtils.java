@@ -8,7 +8,7 @@ import java.security.NoSuchAlgorithmException;
 public class MyStringUtils {
 
 	/**
-	 * 过得MD5加密后的数据
+	 * 获得MD5加密后的数据
 	 * @param value	明文
 	 * @return 密文
 	 */

@@ -7,11 +7,15 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import com.gxc.department.dao.DepartmentDao;
 import com.gxc.department.domain.CrmDepartment;
 
+/**
+ * @author GXC
+ */
 public class DepartmentDaoImpl extends HibernateDaoSupport implements DepartmentDao{
 
 	/**
 	 * 查询所有部门
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	public List<CrmDepartment> findAll() {
 		return this.getHibernateTemplate().find("from CrmDepartment");

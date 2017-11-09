@@ -5,18 +5,65 @@ import java.util.Set;
 
 import com.gxc.classes.domain.CrmClasses;
 
+/**
+ * @author GXC
+ */
 public class CrmCourseType {
 
 	private String courseTypeId;
-	private Double courseCost;	//费用
-	private Integer total; 	//总课时 
-	private String courseName;	//课程类别名称
+	private Double courseCost;
+	private Integer total; 	
+	private String courseName;	
 	private String remark;	
 	
-	//一个课程类型对应多个班级(一对多)
+	/**
+	 * 一个课程类型对应多个班级(一对多)
+	 */
 	private Set<CrmClasses> classSet = new HashSet<CrmClasses>();
 
+	/**
+	 * 查询条件,一般都是字符串
+	 */
+	//1.总学时
+	private String totalStart;
+	private String totalEnd;
+	//2.课程费用
+	private String courseCostStart;
+	private String courseCostEnd;
 	
+	
+	public String getTotalStart() {
+		return totalStart;
+	}
+
+	public void setTotalStart(String totalStart) {
+		this.totalStart = totalStart;
+	}
+
+	public String getTotalEnd() {
+		return totalEnd;
+	}
+
+	public void setTotalEnd(String totalEnd) {
+		this.totalEnd = totalEnd;
+	}
+
+	public String getCourseCostStart() {
+		return courseCostStart;
+	}
+
+	public void setCourseCostStart(String courseCostStart) {
+		this.courseCostStart = courseCostStart;
+	}
+
+	public String getCourseCostEnd() {
+		return courseCostEnd;
+	}
+
+	public void setCourseCostEnd(String courseCostEnd) {
+		this.courseCostEnd = courseCostEnd;
+	}
+
 	public String getCourseTypeId() {
 		return courseTypeId;
 	}

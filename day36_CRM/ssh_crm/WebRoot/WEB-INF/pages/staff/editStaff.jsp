@@ -33,9 +33,10 @@
   </tr>
 </table>
 
-<s:form action="" method="post">
+<%-- 完善表单 --%>
+<s:form action="staffAction_edit" namespace="/" >
 
-	<s:hidden name="staffId"></s:hidden>
+	<s:hidden name="staffId" value="%{staffId}"></s:hidden>
 	
 	<table width="88%" border="0" class="emp_table" style="width:80%;">
 	 <tr>
@@ -58,10 +59,12 @@
 	    	<s:radio list="{'男','女'}" name="gender"></s:radio>
 	    </td>
 	  </tr>
+	  
+	  
 	 <tr>
 	    <td width="10%">所属部门：</td>
 	    <td width="20%">
-			<s:select list="allDepartment" name="post.department.depId"
+			<s:select list="allDepartment" name="post.department.depId" onchange="showPost(this)"
 				listKey="depId" listValue="depName"
 				headerKey="" headerValue="----请--选--择----">
 			</s:select>
@@ -70,10 +73,12 @@
 	    <td width="62%">
 			<s:select list="post != null ? post.department.postSet : {}" name="post.postId"
 				listKey="postId" listValue="postName"
-				headerKey="" headerValue="----请--选--择----">
+				headerKey="" headerValue="----请--选--择----" id="postSelectId">
 			</s:select>
 	    </td>
 	  </tr>
+	  
+	  
 	  <tr>
 	    <td width="10%">入职时间：</td>
 	    <td width="20%">
@@ -85,6 +90,56 @@
 	  </tr>
 	</table>
 </s:form>
+
+
+<script type="text/javascript">
+	function showPost(obj){
+		//1.获取选中部门
+		var deptId = obj.value;
+
+		//2. 发送ajax，通过部门查询职务
+		//2.1:获得ajax引擎
+		var xmlhttp;
+		if (window.XMLHttpRequest){
+		 	 xmlhttp=new XMLHttpRequest();
+		 } else{
+	    	xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	    }
+		//2.2:设置回调函数
+		xmlhttp.onreadystatechange = function(){
+			//请求完成,正常响应
+			if(xmlhttp.readyState == 4 && xmlhttp.status ==200){
+				//3.获得数据 并显示,手动ajax 获得的是json数据的字符串
+				var textData = xmlhttp.responseText;
+				
+				//3.1转换为json对象
+				var jsonData = eval("("+textData+")");
+				
+				//获得post的select元素
+				var postSelectElement = document.getElementById("postSelectId");
+				//开始设置为"";
+				postSelectElement.innerHTML = "<option value=''>----请选择----</option>";
+				
+				//3.2遍历
+				for( var i = 0 ; i < jsonData.length; i++){
+					var postObj = jsonData[i];
+					//获得职务id
+					var postId = postObj.postId;
+					//获得职务名称
+					var postName = postObj.postName;
+					//3.3：将数据显示到
+					postSelectElement.innerHTML += "<option value='"+postId+"'>"+postName+"</option>";
+				}
+			}
+		}
+		//2.3:创建连接
+		var url = "${pageContext.request.contextPath}/postAction_findAllWithDepartment?department.depId="+deptId;
+		xmlhttp.open("GET",url);
+		//2.4:发送请求
+		xmlhttp.send(null);
+	}
+</script>
+
 
 </body>
 </html>

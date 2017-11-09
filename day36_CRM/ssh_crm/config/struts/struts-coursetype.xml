@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<!-- 员工配置 -->
+	<package name="cou" extends="common" namespace="/">
+		<action name="courseTypeAction_*" class="com.gxc.coursetype.web.action.CourseTypeAction" method="{1}">
+			<!-- 1.查询所有 -->
+			<result name="findAll">/WEB-INF/pages/coursetype/listCourse.jsp</result>
+		
+			<!-- 2.添加/编辑JSP页面 -->
+			<result name="addOrEditUI">/WEB-INF/pages/coursetype/addOrEditCourse.jsp</result>
+		
+			<!-- 3.添加/编辑后 -->
+			<result name="addOrEdit" type="redirectAction">courseTypeAction_findAll</result>
+		</action>
+	</package>
+	
+</struts>

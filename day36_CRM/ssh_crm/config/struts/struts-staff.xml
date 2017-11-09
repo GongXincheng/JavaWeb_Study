@@ -22,6 +22,14 @@
 		
 			<!-- 根据Id查询员工（编辑前） -->
 			<result name="editUI">WEB-INF/pages/staff/editStaff.jsp</result>
+			
+			<!-- 编辑成功 -->
+			<result name="edit" type="redirectAction">
+				<param name="actionName">staffAction_findAll</param>
+				<param name="namespace">/</param>
+			</result>
+			
+			
 		</action>
 	</package>
 	

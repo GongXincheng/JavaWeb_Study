@@ -6,6 +6,9 @@ import com.gxc.department.dao.DepartmentDao;
 import com.gxc.department.domain.CrmDepartment;
 import com.gxc.department.service.DepartmentService;
 
+/**
+ * @author GXC
+ */
 public class DepartmentServiceImpl implements DepartmentService{
 	
 	private DepartmentDao departmentDao;
@@ -16,6 +19,7 @@ public class DepartmentServiceImpl implements DepartmentService{
 	/**
 	 * 查询全部
 	 */
+	@Override
 	public List<CrmDepartment> findAll() {
 		return departmentDao.findAll();
 	}
