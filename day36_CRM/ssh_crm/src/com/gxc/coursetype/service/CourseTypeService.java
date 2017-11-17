@@ -3,6 +3,7 @@ package com.gxc.coursetype.service;
 import java.util.List;
 
 import com.gxc.coursetype.domain.CrmCourseType;
+import com.gxc.page.PageBean;
 
 public interface CourseTypeService {
 	/**
@@ -31,4 +32,15 @@ public interface CourseTypeService {
 	 * @param courseType
 	 */
 	public void saveOrUpdate(CrmCourseType courseType);
+	
+	
+	/**
+	 * 分页 + 条件查询
+	 * @param courseType 条件
+	 * @param pageNum	当前页
+	 * @param pageSize	每页显示个数
+	 * @return
+	 */
+	public PageBean<CrmCourseType> findAll(CrmCourseType courseType, int pageNum, int pageSize);
+	
 }

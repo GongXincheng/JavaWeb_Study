@@ -1,11 +1,9 @@
 package com.gxc.coursetype.web.action;
 
-import java.util.List;
-
 import org.apache.commons.lang3.StringUtils;
-
 import com.gxc.coursetype.domain.CrmCourseType;
 import com.gxc.coursetype.service.CourseTypeService;
+import com.gxc.page.PageBean;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
@@ -25,8 +23,18 @@ public class CourseTypeAction extends ActionSupport implements ModelDriven<CrmCo
 		this.courseTypeService = courseTypeService;
 	}
 	
-	/***************************************************************/
+	//分页的数据
+	private int pageNum = 1;
+	private int pageSize = 2;
+	public void setPageNum(int pageNum) {
+		this.pageNum = pageNum;
+	}
+	public void setPageSize(int pageSize) {
+		this.pageSize = pageSize;
+	}
 	
+	/***************************************************************/
+
 	/**
 	 * 查询所有
 	 * @return
@@ -38,11 +46,17 @@ public class CourseTypeAction extends ActionSupport implements ModelDriven<CrmCo
 			//将查询结果存放在值栈   JSP用过#key方式获得
 			ActionContext.getContext().put("allCourseType", allCourseType); 
 			
-		 *  2.条件查询   */
-		List<CrmCourseType> allCourseType = courseTypeService.findAll(courseType);
-		//将查询结果存放在值栈   JSP用过#key方式获得
-		ActionContext.getContext().put("allCourseType", allCourseType);
+		 *  2.条件查询   
+			List<CrmCourseType> allCourseType = courseTypeService.findAll(courseType);
+			//将查询结果存放在值栈   JSP用过#key方式获得
+			ActionContext.getContext().put("allCourseType", allCourseType);
+		*/
 		
+		//3.分页 + 条件
+		PageBean<CrmCourseType> pageBean = 
+				this.courseTypeService.findAll(courseType, pageNum, pageSize);
+		
+		ActionContext.getContext().put("pageBean", pageBean);
 		return "findAll";
 	}
 	
