@@ -2,12 +2,11 @@ package com.gxc.staff.dao.impl;
 
 import java.util.List;
 
-import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
-
+import com.gxc.base.impl.BaseDaoImpl;
 import com.gxc.staff.dao.StaffDao;
 import com.gxc.staff.domain.CrmStaff;
 
-public class StaffDaoImpl extends HibernateDaoSupport implements StaffDao {
+public class StaffDaoImpl extends BaseDaoImpl<CrmStaff> implements StaffDao {
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -19,18 +18,6 @@ public class StaffDaoImpl extends HibernateDaoSupport implements StaffDao {
 			return staffList.get(0);
 		}	
 		return null;
-	}
-
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<CrmStaff> findAll() {
-		List<CrmStaff> list = this.getHibernateTemplate().find("from CrmStaff");
-		return list;
-	}
-
-	@Override
-	public CrmStaff findById(String staffId) {
-		return this.getHibernateTemplate().get(CrmStaff.class, staffId);
 	}
 
 }

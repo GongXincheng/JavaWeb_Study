@@ -1,10 +1,9 @@
 package com.gxc.staff.dao;
 
-import java.util.List;
-
+import com.gxc.base.BaseDao;
 import com.gxc.staff.domain.CrmStaff;
 
-public interface StaffDao {
+public interface StaffDao extends BaseDao<CrmStaff> {
 	
 	/**
 	 * 通过用户名和密码查询
@@ -14,16 +13,4 @@ public interface StaffDao {
 	 */
 	public CrmStaff find(String loginName, String loginPwd);
 	
-	/**
-	 * 查询所有
-	 * @return
-	 */
-	public List<CrmStaff> findAll();
-
-	/**
-	 * 通过Id查询
-	 * @param staffId
-	 * @return
-	 */
-	public CrmStaff findById(String staffId);
 }
