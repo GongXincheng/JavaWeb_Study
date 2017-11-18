@@ -16,7 +16,6 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
-
 	<!-- 3. Spring的过滤器 延迟关闭session -->
 	<filter>
 		<filter-name>openSession</filter-name>

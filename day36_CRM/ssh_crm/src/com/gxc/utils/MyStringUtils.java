@@ -3,6 +3,7 @@ package com.gxc.utils;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.UUID;
 
 
 public class MyStringUtils {
@@ -28,5 +29,14 @@ public class MyStringUtils {
 			throw new RuntimeException(e);
 		}
 	}
+	
+	/**
+	 * 获得一个32长度的UUID
+	 * @return
+	 */
+	public static String getUUID(){
+		return UUID.randomUUID().toString().replace("-", "");
+	}
+	
 	
 }

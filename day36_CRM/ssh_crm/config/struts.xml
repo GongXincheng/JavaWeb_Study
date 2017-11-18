@@ -17,7 +17,9 @@
 			<interceptor name="loginInterceptor" class="com.gxc.web.interceptor.LoginInterceptor"></interceptor>
 			<!-- 2、自定义栈 -->
 			<interceptor-stack name="loginStack">
-				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="defaultStack">
+					<param name="fileUpload.allowedExtensions">.xls,.xlsx</param>
+				</interceptor-ref>
 				<interceptor-ref name="loginInterceptor">
 					<!-- 自定义拦截器不需要拦截 login  
 						excludeMethods: 配置不包含的方法，多个方法使用，分隔
@@ -26,9 +28,8 @@
 				</interceptor-ref>
 			</interceptor-stack>
 		</interceptors>
-		<!-- 3、声明默认拦截器
+		<!-- 3、声明默认拦截器 -->
 		<default-interceptor-ref name="loginStack"></default-interceptor-ref>
-		 -->
 	
 		<!-- 全局结果视图 -->
 		<global-results>
@@ -66,4 +67,5 @@
 	<include file="struts/struts-staff.xml"></include>
 	<include file="struts/struts-post.xml"></include>
 	<include file="struts/struts-coursetype.xml"></include>
+	<include file="struts/struts-classes.xml"></include>
 </struts>

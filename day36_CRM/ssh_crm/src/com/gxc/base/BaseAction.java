@@ -2,6 +2,7 @@ package com.gxc.base;
 
 import java.lang.reflect.ParameterizedType;
 
+import com.gxc.classes.service.ClassesService;
 import com.gxc.coursetype.service.CourseTypeService;
 import com.gxc.department.service.DepartmentService;
 import com.gxc.post.service.PostService;
@@ -80,7 +81,13 @@ public class BaseAction<T> extends ActionSupport implements ModelDriven<T>{
 	}
 	
 	//班级
-	
+	private ClassesService classesService;
+	public void setClassesService(ClassesService classesService) {
+		this.classesService = classesService;
+	}
+	public ClassesService getClassesService() {
+		return classesService;
+	}
 	
 	//3.分页的数据
 	//分页的数据
