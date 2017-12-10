@@ -34,6 +34,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 		
 		return SUCCESS;
 	}
+	
 //编辑用户--------------------------------------------------------------------
 	public String edit(){
 		if(upload == null){
