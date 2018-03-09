@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.gxc.mapper.OrderMapper">
+
+	<!-- 手动映射 -->
+	<resultMap type="Orders" id="orders">
+		<result column="user_id" property="userId"/>
+	</resultMap>
+	<select id="selectOrdersList" resultMap="orders">
+		select id,user_id,number,createtime,note from orders
+	</select>
+
+	
+	<!-- 动态SQL -->
+	<!-- 根据性别和姓名查询用户
+			Where 可以去掉第一个前 AND
+	 -->
+	<select id="selectUserBySexAndUsername" parameterType="User" resultType="User">
+		select * from user 
+		<where>
+			<if test="sex != null and sex != ''">
+				and sex = #{sex}
+			</if>
+			<if test="username != null and username != ''">
+				and username like "%"#{username}"%"
+			</if>
+		</where>
+	</select>
+	
+	
+	
+	<!-- 根据多个ID查询用户 -->
+	<select id="selectUserByIds1" parameterType="QueryVo" resultType="User">
+		select * from user
+		<where>
+			id in 
+			<foreach collection="idsList" item="id" separator="," open="(" close=")">
+				#{id}
+			</foreach>
+		</where>
+	</select>
+	
+	<select id="selectUserByIds2" parameterType="Integer" resultType="User">
+		select * from user
+		<where>
+			id in
+			<foreach collection="array" item="id" separator="," open="(" close=")">
+				#{id}
+			</foreach>
+		</where>
+	</select>
+	
+	<select id="selectUserByIds3" parameterType="Integer" resultType="User">
+		select * from user
+		<where>
+			id in
+			<foreach collection="list" item="id" separator="," open="(" close=")">
+				#{id}
+			</foreach>
+		</where>
+	</select>
+	
+	
+	
+	 <!-- 一对一关联查询 -->
+	<resultMap type="Orders" id="ordersMap">
+		<id column="id" property="id"/>
+		<result column="user_id" property="userId"/>
+		<result column="number" property="number"/>
+		<result column="createtime" property="createtime"/>
+		<association property="user" javaType="User">
+			<id column="user_id" property="id"/>
+			<result column="username" property="username"/>
+		</association>
+	</resultMap>
+	<select id="selectOrders" resultMap="ordersMap">
+		SELECT
+		o.id,
+		o.user_id,
+		o.number,
+		o.createtime,
+		u.username
+		FROM orders o
+		LEFT JOIN user u
+		ON o.user_id = u.id
+	</select>
+	
+	
+	
+	 <!-- 一对多关联查询 -->
+	<resultMap type="User" id="user">
+		<id column="user_id" property="id"/>
+		<result column="username" property="username"/>
+		<!-- 一对多 -->
+		<collection property="ordersList" ofType="Orders" >
+			<id column="id" property="id"/>
+			<result column="number" property="number"/>
+		</collection>
+	</resultMap>
+	<select id="selectUserList" resultMap="user">
+		SELECT
+		o.id,
+		o.user_id,
+		o.number,
+		o.createtime,
+		u.username
+		FROM user u
+		LEFT JOIN orders o
+		ON o.user_id = u.id
+	</select>
+	
+	
+	
+	
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
